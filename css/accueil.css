@@ -1,0 +1,22 @@
+body {
+    background-image: url("../images/wallpaper.jpg");
+    background-size: cover;
+}
+.container {
+    flex-direction: column;
+    opacity: 0.85;
+    border-radius: 10%;
+    background-color: beige;
+}
+input {
+    padding: 10px;
+    margin: 30px;
+    border-radius: 20px;
+    width: 200px;
+    text-align: center;
+}
+select {
+    padding: 10px;
+    margin: 10px;
+    border-radius: 20px;
+}

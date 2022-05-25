@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spawn</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/direction.css">
+    <link rel="stylesheet" href="../css/container.css">
+    <link rel="stylesheet" href="../css/backgroundImage.css">
+</head>
+<body class="zoneSpawn">
+    <h3>Vous venez d'atterrir sur un vaste territoire qui ne semble pas être dominé par un camp spécifique.</h3>
+    <main>
+        <div class="container world containerSpawn" id="containerWorld">
+            <div class="tooltip nordContainer"><img src="../images/fleche-nord.png" alt="" id="nord" class="arrow">
+                <p class="tooltiptext">Le nord semble froid mais appaisant.</p>
+            </div>
+            <!-- middle -->
+            <div class="middleContainer">
+            <div class="tooltip"> <img src="../images/fleche-ouest.png" alt="" id="ouest" class="arrow">
+                <p class="tooltiptext">Une fôret tropicale peu accueillante.</p>
+            </div>
+           <!-- PLAYER --> <div id="player"></div> 
+            <div class="tooltip"> <img src="../images/fleche-est.png" alt="" id="est" class="arrow">
+                <p class="tooltiptext">Des marécages à perte de vue.</p>
+            </div>  
+            </div>
+            <!-- end of middle -->
+            <div class="tooltip sudContainer"><img src="../images/fleche-sud.png" alt="" id="sud" class="arrow">
+                <p class="tooltiptext">Une étendue désertique.</p>
+            </div>
+        </div>
+    </main>
+    <script src="../js/player.js"></script>
+    <script src="../js/toggleContainer.js"></script>
+    <script>
+        let nord = document.getElementById("nord");
+        let est = document.getElementById("est");
+        let sud = document.getElementById("sud");
+        let ouest = document.getElementById("ouest");
+        nord.addEventListener('click', function () {
+            window.location.href = "nord.html";
+        })
+        est.addEventListener('click', function () {
+            window.location.href = "est.html";
+        })
+        sud.addEventListener('click', function () {
+            window.location.href = "sud.html";
+        })
+        ouest.addEventListener('click', function () {
+            window.location.href = "ouest.html";
+            // localStorage.setItem("PV", PV - 1);
+        })
+    </script>
+</body>
+</html>

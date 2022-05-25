@@ -1,0 +1,29 @@
+main {
+    margin-top: -40px;
+}
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 500px;
+    min-height: 500px;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.world { 
+    /* opacity: 0;              C EST POUR LE TOGGLECONTAINER */ 
+    border: 2px black solid;
+    border-radius: 1%;
+}
+/*  PLAYER */
+#player img{
+    border: 2px black solid;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 1px;
+    transition: transform 2s;
+}
+#player img:hover {
+    transform: rotate(360deg);
+}
+

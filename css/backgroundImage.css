@@ -1,0 +1,21 @@
+/* LES BG IMAGES */
+/* DU BODY */
+.zoneSpawn {
+    background-image: url("../images/spawn.jpg");
+}
+.zoneNord {
+    background-image: url("../images/nord/fondNord.webp");
+}
+/* DU CONTAINER */
+.containerNord {
+    background-image: url("../images/nord/prairieMontagne.jpg");
+}
+.containerSpawn {
+    background-image: url("../images/world.jpg");
+}
+.containerNordNord {
+    background-image: url("../images/nord/cheminMontagne.jpg");
+}
+.containerNordNordNord {
+    background-image: url("../images/nord/montagneEnneigee.jpg");
+}
