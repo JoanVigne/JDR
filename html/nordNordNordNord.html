@@ -10,25 +10,30 @@
     <link rel="stylesheet" href="../css/direction.css">
     <link rel="stylesheet" href="../css/container.css">
     <link rel="stylesheet" href="../css/backgroundImage.css">
+    <link rel="stylesheet" href="../css/choix.css">
 
 </head>
+
 <body class="zoneNord">
     <h3> Un froid glacial !</h3>
     <main>
         <div class="container world containerNordNordNord" id="containerWorld">
-            <div id="nord" class="tooltip nordContainer hidden"><img src="../images/fleche-nord.png" alt="" class="arrow">
+            <div id="nord" class="tooltip nordContainer hidden"><img src="../images/fleche-nord.png" alt=""
+                    class="arrow">
                 <p class="tooltiptext">Des glaciers et des arbes enneigés.</p>
             </div>
             <!-- middle -->
             <div class="middleContainer">
-            <div id="ouest" class="tooltip hidden"> <img src="../images/fleche-ouest.png" alt=""  class="arrow">
-                <p class="tooltiptext">RAS</p>
-            </div>
-           <!--LOUP--><div id="loupContainer"></div> 
-           <!-- PLAYER --> <div id="player"></div> 
-            <div id="est" class="tooltip hidden"> <img src="../images/fleche-est.png" alt="" class="arrow">
-                <p class="tooltiptext">Des marécages à perte de vue.</p>
-            </div>  
+                <div id="ouest" class="tooltip hidden"> <img src="../images/fleche-ouest.png" alt="" class="arrow">
+                    <p class="tooltiptext">RAS</p>
+                </div>
+                <!--LOUP-->
+                <div id="loupContainer"></div>
+                <!-- PLAYER -->
+                <div id="player"></div>
+                <div id="est" class="tooltip hidden"> <img src="../images/fleche-est.png" alt="" class="arrow">
+                    <p class="tooltiptext">Des marécages à perte de vue.</p>
+                </div>
             </div>
             <!-- end of middle -->
             <!-- DICE-->
@@ -38,10 +43,12 @@
             </div>
         </div>
     </main>
-    <script src="../js/player.js"></script>
-    <script src="../js/loup.js"></script>
-    <!-- <script src="../js/toggleContainer.js"></script> -->
     <script>
+        let loupContainer = document.getElementById("loupContainer");
+        let retrievedLoups = localStorage.getItem("loups");
+        let loups = JSON.parse(retrievedLoups);
+        let pvLoup = loups[0]["PV"];
+        let degatsLoup = loups[0]["degats"];
         let nord = document.getElementById("nord");
         let est = document.getElementById("est");
         let sud = document.getElementById("sud");
@@ -50,7 +57,7 @@
             window.location.href = "nordNordNordNordNord.html";
         })
         est.addEventListener('click', function () {
-       
+
         })
         sud.addEventListener('click', function () {
             window.location.href = "nordNordNord.html";
@@ -60,5 +67,8 @@
             // localStorage.setItem("PV", PV - 1);
         })
     </script>
+    <script src="../js/player.js"></script>
+    <script src="../js/loup.js"></script>
 </body>
+
 </html>

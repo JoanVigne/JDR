@@ -8,9 +8,17 @@ let img = player[0]["image"];
 let PVPLAYER = localStorage.getItem("PVPLAYER");
 let DEGATSPLAYER = localStorage.getItem("DEGATSPLAYER");
 let playerInfo = document.getElementById("player");
-
-function affichagePerso () {
-    playerInfo.innerHTML = "<img src='../images/perso/" + race + ".png' alt='personnage " + race + "'><br><h4> PV = " + PVPLAYER + "<br> Dégats = " + DEGATSPLAYER + "</h4><br>";
+let fourrure = localStorage.getItem("Fourrure");
+function affichagePerso() {
+    if (fourrure === "oui") {
+        playerInfo.innerHTML = "<img src='../images/perso/" + race + "Loup.png' alt='personnage " + race + "'><br><h4> PV = " + PVPLAYER + "<br> Dégats = " + DEGATSPLAYER + "</h4><h5>Fourrure:<input type='button' value='off' id='fourrureNon'></h5>";
+        let fourrureNon = document.getElementById("fourrureNon");
+        fourrureNon.onclick = localStorage.setItem("Fourrure", "non");
+        window.location.reload();
+    }
+    else {
+        playerInfo.innerHTML = "<img src='../images/perso/" + race + ".png' alt='personnage " + race + "'><br><h4> PV = " + PVPLAYER + "<br> Dégats = " + DEGATSPLAYER + "</h4> ";
+    }
 }
 affichagePerso();
 
