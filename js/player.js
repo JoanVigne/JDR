@@ -1,6 +1,6 @@
 // AFFICHAGE MINIATURE PV ET NOM DU JOUEUR
-let retrievedObject = localStorage.getItem("player");
-let player = JSON.parse(retrievedObject);
+let retrievedPlayer = localStorage.getItem("player");
+let player = JSON.parse(retrievedPlayer);
 
 let nom = player[0]["nom"];
 let race = player[0]["race"];
@@ -23,3 +23,5 @@ function dead() {
     }
 }
 dead();
+
+

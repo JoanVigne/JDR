@@ -14,13 +14,44 @@ window.onload = function () {
 
 
 button.addEventListener('click', setPlayer);
+button.addEventListener('click', setEnemies);
 function setPlayer() {
-    var player = [{
-        "nom": choixNom.value,
-        "race": choixRace.value,
-        "image": choixRace.value
-       }];
-    localStorage.setItem("player", JSON.stringify(player));
-    window.location.href = "html/startJeu.html";
-  };
-  
+  let player = [{
+    "nom": choixNom.value,
+    "race": choixRace.value,
+    "image": choixRace.value
+  }];
+  localStorage.setItem("player", JSON.stringify(player));
+  window.location.href = "html/startJeu.html";
+};
+
+
+function setEnemies() {
+  let loups = [{
+    "nom": "NNNN",
+    "PV": 5,
+    "degats": 2
+  },
+  {
+    "nom": "NNNNN",
+    "PV": 7,
+    "degats": 3
+  },
+  {
+    "nom": "NNNO",
+    "PV": 4,
+    "degats": 3
+  },
+  {
+    "nom": "NNOO",
+    "PV": 5,
+    "degats": 2
+  },
+  {
+    "nom": "NNNOO",
+    "PV": 7,
+    "degats": 3
+  }
+  ]
+  localStorage.setItem("loups", JSON.stringify(loups));
+}

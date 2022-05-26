@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nord Nord Nord Nord</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/direction.css">
+    <link rel="stylesheet" href="../css/container.css">
+    <link rel="stylesheet" href="../css/backgroundImage.css">
+
+</head>
+<body class="zoneNord">
+    <h3> Un froid glacial !</h3>
+    <main>
+        <div class="container world containerNordNordNord" id="containerWorld">
+            <div id="nord" class="tooltip nordContainer hidden"><img src="../images/fleche-nord.png" alt="" class="arrow">
+                <p class="tooltiptext">Des glaciers et des arbes enneigés.</p>
+            </div>
+            <!-- middle -->
+            <div class="middleContainer">
+            <div id="ouest" class="tooltip hidden"> <img src="../images/fleche-ouest.png" alt=""  class="arrow">
+                <p class="tooltiptext">RAS</p>
+            </div>
+           <!--LOUP--><div id="loupContainer"></div> 
+           <!-- PLAYER --> <div id="player"></div> 
+            <div id="est" class="tooltip hidden"> <img src="../images/fleche-est.png" alt="" class="arrow">
+                <p class="tooltiptext">Des marécages à perte de vue.</p>
+            </div>  
+            </div>
+            <!-- end of middle -->
+            <!-- DICE-->
+            <div id="dice"></div>
+            <div id="sud" class="tooltip sudContainer hidden"><img src="../images/fleche-sud.png" alt="" class="arrow">
+                <p class="tooltiptext">Vous pouvez revenir sur vos pas...</p>
+            </div>
+        </div>
+    </main>
+    <script src="../js/player.js"></script>
+    <script src="../js/loup.js"></script>
+    <!-- <script src="../js/toggleContainer.js"></script> -->
+    <script>
+        let nord = document.getElementById("nord");
+        let est = document.getElementById("est");
+        let sud = document.getElementById("sud");
+        let ouest = document.getElementById("ouest");
+        nord.addEventListener('click', function () {
+            window.location.href = "nordNordNordNordNord.html";
+        })
+        est.addEventListener('click', function () {
+       
+        })
+        sud.addEventListener('click', function () {
+            window.location.href = "nordNordNord.html";
+        })
+        ouest.addEventListener('click', function () {
+            window.location.href = "nordNordNordNordOuest.html";
+            // localStorage.setItem("PV", PV - 1);
+        })
+    </script>
+</body>
+</html>
