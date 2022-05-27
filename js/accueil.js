@@ -14,6 +14,7 @@ window.onload = function () {
 
 
 button.addEventListener('click', setPlayer);
+button.addEventListener('click', setFourrure);
 button.addEventListener('click', setEnemies);
 function setPlayer() {
   let player = [{
@@ -25,6 +26,9 @@ function setPlayer() {
   window.location.href = "html/startJeu.html";
 };
 
+function setFourrure() {
+  localStorage.setItem("Fourrure", "non");
+}
 
 function setEnemies() {
   let loups = [{

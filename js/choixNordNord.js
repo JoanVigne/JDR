@@ -2,14 +2,10 @@
 // CHOIX NORD NORD
     // sans les fleches 
     function disparaitreFleche() {
-        let flecheNord = document.getElementById("nord");
-        let flecheSud = document.getElementById("sud");
-        let flecheEst = document.getElementById("est");
-        let flecheOuest= document.getElementById("ouest");
-        flecheNord.classList.remove("hidden");
-        flecheSud.classList.remove("hidden");
-        flecheEst.classList.remove("hidden");
-        flecheOuest.classList.remove("hidden");
+        nord.classList.remove("hidden");
+        sud.classList.remove("hidden");
+        est.classList.remove("hidden");
+        ouest.classList.remove("hidden");
         choixNordNord.style.marginTop = "20px";  
     };
 let nordNordDone = localStorage.getItem("choixNordNord")
@@ -28,7 +24,7 @@ window.onload = function done() {
     }
     if (nordNordDone === "choixNordNord2") {
         if (race === "orc") {
-            paraChoix.innerHTML = "Au moment ou vous vous approchez pour les saluer, vous vous rendez compte que ce sont des humains.<br> Quand ils se rendent compte que vous êtes un orc, ils prennent leurs jambes à leurs cous !";
+            paraChoix.innerHTML = "En vous rapprochant pour les saluer, vous vous rendez compte que ce sont <strong>des humains.</strong><br> Quand ils se rendent compte que vous êtes <strong>un orc</strong>,<br> ils prennent leurs jambes à leurs cous <strong>vers l'est</strong>  !";
             if (race === "humain") {
                 paraChoix.innerHTML = "Au moment ou vous vous approchez pour les saluer, vous vous rendez compte que ce sont des humains.<br> Ils sont ravis de vous voir et vous retourne votre bonjour.";
             }

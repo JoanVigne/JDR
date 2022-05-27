@@ -11,24 +11,22 @@ function disparaitreFleche() {
     sud.classList.remove("hidden");
     est.classList.remove("hidden");
     ouest.classList.remove("hidden");
-    loupContainer.style.display = "none";
 };
-// creation loup si lui encore vivant
+// creation loup  ou disparition
 function alertLoup() {
+    let fourrure = localStorage.getItem("Fourrure");
     if (pvLoup <= 0) {
+        loupContainer.innerHTML = '<p>Vous avez vaincu<br>ce canidé sauvage.</p><br>';
         disparaitreFleche();
-            playerInfo.insertAdjacentHTML('beforeend', '<div id="questionNNNN"><h4>Que faire du loup?</h4><input type="button" value="Se vétire de sa fourrure" id="peauDeBete" class="choix"><br></div>');
-            // input inséré juste avant
+        if(fourrure === "non"){
+            loupContainer.insertAdjacentHTML('beforeend', '<div id="questionNNNN"><input type="button" value="Se vétire de sa fourrure" id="peauDeBete" class="choix"></div>');
             let peauDeBete = document.getElementById("peauDeBete");
-            function setPeauDeBete(){
+            function setPeauDeBete() {
                 localStorage.setItem("Fourrure", "oui");
+                window.location.reload();
             }
             peauDeBete.addEventListener("click", setPeauDeBete);
-            // function removeQuestionNNNN(){
-            //     let questionNNNN = document.getElementById("questionNNNN");
-            //     questionNNNN.remove();
-            // }
-            // removeQuestionNNNN();
+        }
     }
     if (pvLoup >= 1) {
         alert("Un loup surgit devant vous !!");
@@ -36,8 +34,10 @@ function alertLoup() {
         let dice = document.getElementById("dice");
         dice.innerHTML = "<img src='../images/dé-96.png'>";
     }
+
 }
 alertLoup()
+
 
 
 dice.addEventListener("click", rollTheDice);

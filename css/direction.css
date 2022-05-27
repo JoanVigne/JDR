@@ -2,6 +2,9 @@
 .hidden {
     visibility: hidden;
 }
+.displayNone {
+    display: none;
+}
 .container {
     flex-direction: column;
     margin-top: 40px;

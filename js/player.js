@@ -11,16 +11,27 @@ let playerInfo = document.getElementById("player");
 let fourrure = localStorage.getItem("Fourrure");
 function affichagePerso() {
     if (fourrure === "oui") {
-        playerInfo.innerHTML = "<img src='../images/perso/" + race + "Loup.png' alt='personnage " + race + "'><br><h4> PV = " + PVPLAYER + "<br> Dégats = " + DEGATSPLAYER + "</h4><h5>Fourrure:<input type='button' value='off' id='fourrureNon'></h5>";
-        let fourrureNon = document.getElementById("fourrureNon");
-        fourrureNon.onclick = localStorage.setItem("Fourrure", "non");
-        window.location.reload();
+        playerInfo.innerHTML = "<img src='../images/perso/" + race + "Loup.png' alt='personnage " + race + "'><br><h4> PV = " + PVPLAYER + "<br> Dégats = " + DEGATSPLAYER + "</h4><input type='button' value='Fourrure off' id='fourrureNon'>";    
+        
     }
     else {
         playerInfo.innerHTML = "<img src='../images/perso/" + race + ".png' alt='personnage " + race + "'><br><h4> PV = " + PVPLAYER + "<br> Dégats = " + DEGATSPLAYER + "</h4> ";
     }
 }
 affichagePerso();
+
+if(fourrure === "oui"){
+    console.log("Ficicii");
+ let fourrureNon = document.getElementById("fourrureNon");
+ console.log(fourrureNon);
+console.log(fourrureOff);
+ function fourrureOff(){
+     localStorage.setItem("Fourrure", "non");
+     console.log("le click fourrureoff fonctionne");
+     window.location.reload();
+ }
+ fourrureNon.addEventListener('onclick', fourrureOff);
+}
 
 
 // // LA MORT 
@@ -33,3 +44,8 @@ function dead() {
 dead();
 
 
+// DIRECTIONS 
+let nord = document.getElementById("nord");
+let est = document.getElementById("est");
+let sud = document.getElementById("sud");
+let ouest = document.getElementById("ouest");

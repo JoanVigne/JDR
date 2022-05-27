@@ -35,18 +35,18 @@
             </div>
             <!-- middle -->
             <div class="middleContainer">
-                <div class="tooltip"> <img src="../images/fleche-ouest.png" alt="" id="ouest" class="arrow hidden">
+                <div id="ouest" class="tooltip"> <img src="../images/fleche-ouest.png" alt="" class="arrow ">
                     <p class="tooltiptext">Vous voyez des étroits chemins de terre qui n'ont l'air de mener nul part.
                     </p>
                 </div>
                 <!-- PLAYER -->
                 <div id="player"></div>
-                <div class="tooltip" id="estHidden"> <img src="../images/fleche-est.png" alt="" id="est" class="arrow hidden">
+                <div id="est" class="tooltip"> <img src="../images/fleche-est.png" alt="" class="arrow">
                     <p class="tooltiptext">Là d'où venaient les deux paysans.</p>
                 </div>
             </div>
             <!-- end of middle -->
-            <div class="tooltip sudContainer"><img src="../images/fleche-sud.png" alt="" id="sud" class="arrow hidden">
+            <div id="sud" class="tooltip sudContainer"><img src="../images/fleche-sud.png" alt="" class="arrow">
                 <p class="tooltiptext">Vous pouvez revenir sur vos pas...</p>
             </div>
         </div>
@@ -55,10 +55,6 @@
     <script src="../js/choixNordNord.js"></script>
     <!-- <script src="../js/toggleContainer.js"></script> -->
     <script>
-        let nord = document.getElementById("nord");
-        let est = document.getElementById("est");
-        let sud = document.getElementById("sud");
-        let ouest = document.getElementById("ouest");
         nord.addEventListener('click', function () {
             window.location.href = "nordNordNord.html"
         })
