@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nord Nord Nord Nord Nord</title>
+    <title>Nord Nord Ouest Ouest</title>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/direction.css">
     <link rel="stylesheet" href="../css/container.css">
@@ -19,8 +19,8 @@
     <main>
         <div class="container world containerNordNordNord" id="containerWorld">
             <div id="nord" class="tooltip nordContainer hidden"><img src="../images/fleche-nord.png" alt=""
-                    class="arrow hidden">
-                <p class="tooltiptext displayNone"></p>
+                    class="arrow">
+                <p class="tooltiptext">Des glaciers geánts</p>
             </div>
             <!-- middle -->
             <div class="middleContainer">
@@ -39,7 +39,7 @@
             <!-- DICE-->
             <div id="dice"></div>
             <div id="sud" class="tooltip sudContainer hidden"><img src="../images/fleche-sud.png" alt="" class="arrow">
-                <p class="tooltiptext">A la recherche du soleil</p>
+                <p class="tooltiptext">Vous pouvez revenir sur vos pas...</p>
             </div>
         </div>
     </main>
@@ -49,29 +49,22 @@
         let loupContainer = document.getElementById("loupContainer");
         let retrievedLoups = localStorage.getItem("loups");
         let loups = JSON.parse(retrievedLoups);
-        let loup = loups[1];
+        let loup = loups[3];
         let pvLoup = loup["PV"];
         let degatsLoup = loup["degats"];
 
         nord.addEventListener('click', function () {
-            window.location.href = "nordNordNordNordNord.html";
-            if(fourrure ==="non"){
-                alert("le froid est si violent que vous perdez 1 PV")
-                localStorage.setItem("PV", PV - 1);
-            }
+            window.location.href = "nordNordNordOuestOuest.html";
         })
         est.addEventListener('click', function () {
-
+            window.location.href = "nordNordOuest.html";
         })
         sud.addEventListener('click', function () {
-            window.location.href = "nordNordNordNord.html";
+            
         })
         ouest.addEventListener('click', function () {
-            if(fourrure ==="non"){
-                alert("le froid est si violent que vous perdez 1 PV")
-                localStorage.setItem("PV", PV - 1);
-            }
-            window.location.href = "nordNordNordNordNordOuest.html";
+            window.location.href = "nordNordOuestOuestOuest.html";
+            // localStorage.setItem("PV", PV - 1);
         })
     </script>
      <script src="../js/loup.js"></script>

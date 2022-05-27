@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nord Nord Nord</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/direction.css">
+    <link rel="stylesheet" href="../css/container.css">
+    <link rel="stylesheet" href="../css/backgroundImage.css">
+
+</head>
+<body class="zoneNord">
+    <h3>Froid mais appaisant.</h3>
+    <main>
+        <div class="container world containerNordNordNord" id="containerWorld">
+            <div class="tooltip nordContainer"><img src="../images/fleche-nord.png" alt="" id="nord" class="arrow hidden">
+                <p class="tooltiptext displayNone"></p>
+            </div>
+            <!-- middle -->
+            <div class="middleContainer">
+            <div class="tooltip"> <img src="../images/fleche-ouest.png" alt="" id="ouest" class="arrow">
+                <p class="tooltiptext">Vous pouvez voir un point de lumière dans les montagnes au loin</p>
+            </div>
+           <!-- PLAYER --> <div id="player"></div> 
+            <div class="tooltip hidden"> <img src="../images/fleche-est.png" alt="" id="est" class="arrow">
+                <p class="tooltiptext">Rien que du blizzard et des montagnes</p>
+            </div>  
+            </div>
+            <!-- end of middle -->
+            <div class="tooltip sudContainer"><img src="../images/fleche-sud.png" alt="" id="sud" class="arrow">
+                <p class="tooltiptext">Il neige moins par là</p>
+            </div>
+        </div>
+    </main>
+    <script src="../js/player.js"></script>
+
+    <script>
+        nord.addEventListener('click', function () {
+
+        })
+        est.addEventListener('click', function () {
+            if(fourrure ==="non"){
+                alert("le froid est si violent que vous perdez 1 PV")
+                localStorage.setItem("PV", PV - 1);
+            }
+            window.location.href = "nordNordNordNordNord.html";
+        })
+        sud.addEventListener('click', function () {
+            window.location.href = "nordNordNordNordOuest.html";
+        })
+        ouest.addEventListener('click', function () {
+            if(fourrure ==="non"){
+                alert("le froid est si violent que vous perdez 1 PV")
+                localStorage.setItem("PV", PV - 1);
+            }
+            window.location.href = "nordNordNordNordNordOuestOuest.html";
+            // localStorage.setItem("PV", PV - 1);
+        })
+    </script>
+</body>
+</html>
