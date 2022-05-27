@@ -25,12 +25,12 @@
             </div>
             <!-- middle -->
             <div class="middleContainer">
-            <div class="tooltip"> <img src="../images/fleche-ouest.png" alt="" id="ouest" class="arrow">
-                <p class="tooltiptext">RAS</p>
+            <div class="tooltip"> <img src="../images/fleche-ouest.png" alt="" id="ouest" class="arrow hidden">
+                <p class="tooltiptext displayNone">RAS</p>
             </div>
            <!-- PLAYER --> <div id="player"></div> 
-            <div class="tooltip" id="estHidden"> <img src="../images/fleche-est.png" alt="" id="est" class="arrow">
-                <p class="tooltiptext">Des marécages à perte de vue.</p>
+            <div class="tooltip"> <img src="../images/fleche-est.png" alt="" id="est" class="arrow">
+                <p class="tooltiptext">Des champs !</p>
             </div>  
             </div>
             <!-- end of middle -->
@@ -45,14 +45,13 @@
             window.location.href = "nordNord.html";
         })
         est.addEventListener('click', function () {
-            
+            window.location.href = "nordEst.html";
         })
         sud.addEventListener('click', function () {
             window.location.href = "spawn.html";
         })
         ouest.addEventListener('click', function () {
-            window.location.href = "nordOuest.html";
-            // localStorage.setItem("PV", PV - 1);
+
         })
     </script>
 </body>

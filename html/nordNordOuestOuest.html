@@ -20,26 +20,26 @@
         <div class="container world containerNordNordNord" id="containerWorld">
             <div id="nord" class="tooltip nordContainer hidden"><img src="../images/fleche-nord.png" alt=""
                     class="arrow">
-                <p class="tooltiptext">Des glaciers geánts</p>
+                <p class="tooltiptext">Plus de neige</p>
             </div>
             <!-- middle -->
             <div class="middleContainer">
                 <div id="ouest" class="tooltip hidden"> <img src="../images/fleche-ouest.png" alt="" class="arrow">
-                    <p class="tooltiptext">Des glaciers et des arbes enneigés.</p>
+                    <p class="tooltiptext">des arbes enneigés.</p>
                 </div>
                 <!--LOUP-->
                 <div id="loupContainer"></div>
                 <!-- PLAYER -->
                 <div id="player"></div>
-                <div id="est" class="tooltip hidden"> <img src="../images/fleche-est.png" alt="" class="arrow hidden">
-                    <p class="tooltiptext displayNone"></p>
+                <div id="est" class="tooltip hidden"> <img src="../images/fleche-est.png" alt="" class="arrow ">
+                    <p class="tooltiptext "></p>
                 </div>
             </div>
             <!-- end of middle -->
             <!-- DICE-->
             <div id="dice"></div>
-            <div id="sud" class="tooltip sudContainer hidden"><img src="../images/fleche-sud.png" alt="" class="arrow">
-                <p class="tooltiptext">Vous pouvez revenir sur vos pas...</p>
+            <div id="sud" class="tooltip sudContainer hidden"><img src="../images/fleche-sud.png" alt="" class="arrow hidden">
+                <p class="tooltiptext displayNone"></p>
             </div>
         </div>
     </main>
@@ -64,7 +64,6 @@
         })
         ouest.addEventListener('click', function () {
             window.location.href = "nordNordOuestOuestOuest.html";
-            // localStorage.setItem("PV", PV - 1);
         })
     </script>
      <script src="../js/loup.js"></script>

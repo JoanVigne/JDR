@@ -22,7 +22,7 @@
             <!-- middle -->
             <div class="middleContainer">
             <div class="tooltip"> <img src="../images/fleche-ouest.png" alt="" id="ouest" class="arrow">
-                <p class="tooltiptext">Revenir sur vos pas</p>
+                <p class="tooltiptext">Chemins</p>
             </div>
                     <!-- PLAYER --> <div id="player"></div> 
             <div class="tooltip "> <img src="../images/fleche-est.png" alt="" id="est" class="arrow">
@@ -36,12 +36,8 @@
         </div>
     </main>
     <script src="../js/player.js"></script>
-    <!-- <script src="../js/toggleContainer.js"></script> -->
     <script>
-        let nord = document.getElementById("nord");
-        let est = document.getElementById("est");
-        let sud = document.getElementById("sud");
-        let ouest = document.getElementById("ouest");
+    
         nord.addEventListener('click', function () {
 
         })
@@ -53,7 +49,7 @@
         })
         ouest.addEventListener('click', function () {
             window.location.href = "nordNord.html";
-            // localStorage.setItem("PV", PV - 1);
+
         })
     </script>
 </body>
