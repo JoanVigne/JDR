@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Camp orc</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/direction.css">
+    <link rel="stylesheet" href="../css/container.css">
+    <link rel="stylesheet" href="../css/backgroundImage.css">
+
+</head>
+<body class="zoneNordNuit">
+    <h3>Camp orc</h3>
+    <main>
+        <div class="container world containerOrc" id="containerWorld">
+            
+            <div class="tooltip hidden nordContainer "><img src="../images/fleche-nord.png" alt="" id="nord" class="arrow">
+                <p class="tooltiptext">Une autre partie du camp orc.</p>
+            </div>
+            <!-- middle -->
+            <div class="middleContainer">
+            <div class="tooltip hidden"> <img src="../images/fleche-ouest.png" alt="" id="ouest" class="arrow">
+                <p class="tooltiptext">Une autre partie du camp orc.</p>
+            </div>
+           <!-- PLAYER --> <div id="player"></div> 
+            <div class="tooltip hidden"> <img src="../images/fleche-est.png" alt="" id="est" class="arrow">
+                <p class="tooltiptext">sortir du camp</p>
+            </div>  
+            </div>
+            <!-- end of middle -->
+            <div class="tooltip hidden"><img src="../images/fleche-sud.png" alt="" id="sud" class="arrow">
+                <p class="tooltiptext">sortir du camp</p>
+            </div>
+        </div>
+    </main>
+    <script src="../js/player.js"></script>
+    <script src="../js/o1.js"></script>
+
+    <script>
+        nord.addEventListener('click', function () {
+            window.location.href = "orc3.html";
+        })
+        est.addEventListener('click', function () {
+            window.location.href = "nordNordNordNordNordOuest.html";
+        })
+        sud.addEventListener('click', function () {
+            window.location.href = "nordNordNordNordOuestOuest.html";
+        })
+        ouest.addEventListener('click', function () {          
+            window.location.href = "orc2.html";
+        })
+    </script>
+</body>
+</html>

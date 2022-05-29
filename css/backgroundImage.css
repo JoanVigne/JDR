@@ -6,6 +6,9 @@
 .zoneNord {
     background-image: url("../images/nord/fondNord.webp");
 }
+.zoneNordNuit {
+    background-image: url("../images/nord/neigeNuit.jpg");
+}
 /* DU CONTAINER */
 .containerNord {
     background-image: url("../images/nord/prairieMontagne.jpg");
@@ -18,4 +21,7 @@
 }
 .containerNordNordNord {
     background-image: url("../images/nord/montagneEnneigee.jpg");
+}
+.containerOrc {
+    background-image: url("../images/nord/campOrc.jpg");
 }

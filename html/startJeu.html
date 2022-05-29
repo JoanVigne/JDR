@@ -6,7 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <!-- CONTIENT LE JS QUI SET LES STATS DU JOUEUR -->
     <style>
         * {
             text-align: center;
@@ -29,33 +28,7 @@
     <main>
         <h1>Que l'aventure commence !</h1>
     </main>
-    <script>
-        let retrievedObject = localStorage.getItem("player");
-        let player = JSON.parse(retrievedObject);
-
-        let nom = player[0]["nom"];
-        let race = player[0]["race"];
-        let img = player[0]["image"];
-        
-        let clickpartout = document.addEventListener("click", setStats);
-        function setStats() {
-            if (race === "orc") {
-                localStorage.setItem("PVPLAYER", 20);
-                localStorage.setItem("DEGATSPLAYER", 7);
-                window.location.href = "spawn.html"; // rediriger vers l'autre page si le nom est bien rentré
-            }
-            else if (race === "humain") {
-                localStorage.setItem("PVPLAYER", 14);
-                localStorage.setItem("DEGATSPLAYER", 5);
-                window.location.href = "spawn.html"; // rediriger vers l'autre page si le nom est bien rentré
-            }
-            else if (race === "savana") {
-                localStorage.setItem("PVPLAYER", 25);
-                localStorage.setItem("DEGATSPLAYER", 9);
-                window.location.href = "spawn.html"; // rediriger vers l'autre page si le nom est bien rentré
-            }
-        };  
-    </script>
+<script src="../js/setStats.js"></script>
 </body>
 
 </html>
