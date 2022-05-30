@@ -12,8 +12,11 @@ input {
     background-color: white;
     padding: 3px;
     margin: 3px;
+    text-align: center;
 }
 input:hover {
     background-color: black;
     color: white;
+    cursor: pointer;
 }
+
