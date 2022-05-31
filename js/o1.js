@@ -5,13 +5,13 @@ function apparaitreFleche() {
         for (let f = 0; f < fleches.length; f++)
                 fleches[f].classList.remove("hidden");
 };
-let choixOrc1arriver = localStorage.getItem("choixOrc1arriver");
+
 // ARRIVEE AU CAMP O1
 let containerPara = document.getElementById("containerPara");
 let orcCamp = "<img src='../images/perso/orcCamp.png'>";
 // TABLEAUX DES CHOIX
 const raceChoices1 = {
-        human: [
+        humain: [
                 "poser son arme",
                 "negocier",
                 "se battre avec honneur"
@@ -23,49 +23,48 @@ const raceChoices1 = {
         ]
 }
 const raceChoices2 = {
-        nePasRepondre: [
-                "Négocier avec eux",
+        "nePasRepondre": [
+                "Negocier",
                 "Sortir mon arme",
                 "Se moquer d'eux"
         ],
-        repondreSereinement: [
-                "Ne pas répondre",
-                "Répondre sereinement",
-                "Répondre agressivement"
+        "repondreSereinement": [
+                "Laissez moi passer.",
+                "Vous voulez tater de ma superbe?",
+                "Amenez moi au chef de ce lieu"
         ],
-        repondreAgressivement: [
-                "Ne pas répondre",
-                "Répondre sereinement",
-                "Répondre agressivement"
+        "repondreAgressivement": [
+                "Tremblant, ils rangent leurs armes",
+                "Ils respectent votre charisme mais décident de vous attaquer(+2degats)",
+                "Ils se fendent la poire et vous attaquent"
         ],
-        poserSonArme: [
-                "Ne pas répondre",
-                "Répondre sereinement",
-                "Répondre agressivement"
+        "poserSonArme": [
+                "Se laisser faire",
+                "Demander un peu de respect",
+                "Changer d'avis et se battre pour votre honneur"
         ],
-        negocier: [
-                "Ne pas répondre",
-                "Répondre sereinement",
-                "Répondre agressivement"
+        "negocier": [
+                "Charismatique, ils accepent donc de vous emmener au chef, désarmé",
+                "Ils apprécient votre charisme, et accepte de vous prendre en duel plutôt qu'à deux",
+                "Ridicule, ils vous attaquent sans respect"
         ],
-        seBattreAvecHonneur: [
-                "Ne pas répondre",
-                "Répondre sereinement",
-                "Répondre agressivement"
+        "seBattreAvecHonneur": [
+                "Rennoncer à se battre et les suivre jusqu'à leur chef",
+                "Attaquer pendant qu'ils rangent leurs armes",
+                "Jurer sur votre honneur(+2degats)"
         ]
 };
-// PARCOURIR LE TABLEAU raceChoices2 POUR SAVOIR SI L UNE DES OPTIONS A ETE CLIQUÉ
-let result = true;
-        for(let i = 0; i < raceChoices2.lenght; i++){
-                if (raceChoices2[i] <= 0){
-                        result = false;
-                        break;
-                }
-        }
+
 // ARRIVEE ET SUITE
+// recup des choix deja fait
+let choixOrc1Arriver = localStorage.getItem("choixOrc1Arriver");
+let choixOrc1Second = localStorage.getItem("choixOrc1Second");
 function arriverO1() {
         // puis mettre result en condition
-        if (result === true ) {
+        if(choixOrc1Second != null){
+                finalChoixOrc1();
+        }
+        if(choixOrc1Arriver != null){
                 secondChoixOrc1();
         }
         // si on vient d'arriver sur la page 
@@ -91,10 +90,9 @@ function setInput1(race) {
                 containerPara.appendChild(input);
                 input.addEventListener("click", setInLocalStorage);
         });
-}
-// deuxieme choix
-function setInput2(){
-        raceChoices2[reponse].forEach(element => {
+}       
+function setInputs(raceChoices2, reponse) {
+        raceChoices2[reponse].forEach((element) => {
                 const input = document.createElement("input");
                 input.setAttribute("type", "button");
                 input.setAttribute("value", element);
@@ -103,52 +101,50 @@ function setInput2(){
                 input.addEventListener("click", setInLocalStorage2);
         });
 }
-// function setInput2(){
-//         // const reponse = localStorage.getItem("choixOrc1arriver");
-//         raceChoices2[].forEach(element => {
-//                 const input = document.createElement("input");
-//                 input.setAttribute("type", "button");
-//                 input.setAttribute("value", element);
-//                 input.classList.add("choix");
-//                 containerPara.appendChild(input);
-//                 input.addEventListener("click", setInLocalStorage);
-//         });
-// }
+
 function secondChoixOrc1() {
         containerPara.innerHTML = "" + orcCamp + orcCamp + "";
-
-        if (choixOrc1arriver === "Ne pas répondre") {
-                // let input1 = `<input type="button" class="choix" value="${raceChoices2["nePasRepondre"][0]}">`;
-                // let input2 = `<input type="button" class="choix" value="${raceChoices2["nePasRepondre"][1]}">`;
-                // let input3 = `<input type="button" class="choix" value="${raceChoices2["nePasRepondre"][2]}">`;
+        let choixOrc1Arriver = localStorage.getItem("choixOrc1Arriver");
+        if (choixOrc1Arriver === "Ne pas répondre") {
                 containerPara.innerHTML += `<p>Les deux gardes commencent à s'impatienter,<br>ils sortent leurs armes.</p>  `
-                // ${input1}${input2}${input3}
+                setInputs(raceChoices2, "nePasRepondre");
         }
-
-        if (choixOrc1arriver === "Répondre sereinement") {
-
+        if (choixOrc1Arriver === "Répondre sereinement") {
+                containerPara.innerHTML += `<p>Les deux gardes commencent à s'impatienter,<br>ils sortent leurs armes.</p>  `
+                setInputs(raceChoices2, "repondreSereinement");
         }
-        if (choixOrc1arriver === "Répondre agressivement") {
-
+        if (choixOrc1Arriver === "Répondre agressivement") {
+                containerPara.innerHTML += `<p>Les deux gardes commencent à s'impatienter,<br>ils sortent leurs armes.</p>  `
+                setInputs(raceChoices2, "repondreAgressivement");
         }
-        if (choixOrc1arriver === "poser son arme") {
-
+        if (choixOrc1Arriver === "poser son arme") {
+                containerPara.innerHTML += `<p>Les deux gardes commencent à s'impatienter,<br>ils sortent leurs armes.</p>  `
+                setInputs(raceChoices2, "poserSonArme");
         }
-        if (choixOrc1arriver === "negocier") {
-
+        if (choixOrc1Arriver === "negocier") {
+                containerPara.innerHTML += `<p>Les deux gardes commencent à s'impatienter,<br>ils sortent leurs armes.</p>  `
+                setInputs(raceChoices2, "negocier");
         }
-        if (choixOrc1arriver === "se battre avec honneur") {
-
+        if (choixOrc1Arriver === "se battre avec honneur") {
+                containerPara.innerHTML += `<p>Les deux gardes commencent à s'impatienter,<br>ils sortent leurs armes.</p>  `
+                setInputs(raceChoices2, "seBattreAvecHonneur");
         };
 }
+function finalChoixOrc1(){
+
+}
 // LOCAL STORAGE
-function setInLocalStorage(event) {
-        console.log('event:', event.target.value)
-        localStorage.setItem("choixOrc1arriver", event.target.value);
+function setInLocalStorage(event) {     
+        localStorage.setItem("choixOrc1Arriver", event.target.value);
         window.location.reload();
 }
-function setInLocalStorage2(){
-        
+function setInLocalStorage2(event) {
+        localStorage.setItem("choixOrc1Second", event.target.value);
+        window.location.reload();
+}
+function setInLocalStorage3(event) {
+        localStorage.setItem("finalChoixOrc1", event.target.value);
+        window.location.reload();
 }
 
 // dice
