@@ -19,11 +19,11 @@ let playerContainer = document.getElementById("player");
 let fourrure = localStorage.getItem("Fourrure");
 function affichagePerso() {
     if (fourrure === "oui") {
-        playerContainer.innerHTML = "<div id='playerInfos'> <img id='imgPerso' src='../images/perso/" + race + "Loup.png' alt='personnage " + race + "'><br><h4 id='statsIn' > PV: " + PVACTUEL + "<br> Dégats: " + degats + "</h4><input type='button' value='Fourrure off' id='fourrureNon'></div>";    
+        playerContainer.innerHTML = "<div id='playerInfos'> <img id='imgPerso' src='../images/perso/" + race + "Loup.png' title='Voir plus de stats' " + race + "'><br><h4 id='statsIn' > PV: " + PVACTUEL + "<br> Dégats: " + degats + "</h4><input type='button' value='Fourrure off' id='fourrureNon'></div>";    
         
     }
     else {
-        playerContainer.innerHTML = "<div id='playerInfos'><img id='imgPerso' src='../images/perso/" + race + ".png' alt='personnage " + race + "'><br><h4 id='statsIn'> PV: " + PVACTUEL + "<br> Dégats: " + degats + "</h4> </div>";
+        playerContainer.innerHTML = "<div id='playerInfos'><img id='imgPerso' src='../images/perso/" + race + ".png' title='Voir plus de stats' " + race + "'><br><h4 id='statsIn'> PV: " + PVACTUEL + "<br> Dégats: " + degats + "</h4> </div>";
     }
 }
 affichagePerso();
@@ -33,38 +33,47 @@ affichagePerso();
 let imgPerso = document.getElementById("imgPerso");
 let statsIn = document.getElementById("statsIn");
 function addStats(){
+    
     imgPerso.classList.add("displayNone");
     statsIn.innerHTML = "PV: " + PVACTUEL +"/"  + pv + "<br> Dégats: " + degats + "<br> Endurance: " + endurance + "<br> Speed: " + speed + "<br>Intel: " + intelligence + "<br> Social: " + social + "<br></h4>";
 }
 imgPerso.addEventListener("click", addStats);
 
 function hideStats(){
+    
     imgPerso.classList.remove("displayNone");
     statsIn.innerHTML = "PV: " + PVACTUEL + "<br> Dégats: " + degats + "</h4>";
 }
 statsIn.addEventListener("click", hideStats);
 
-// inserer une barre d'xp
-// main = document.querySelector("main");
-// function createBarreXP(){
-//     barreXP = document.createElement("div");
-//     barreXP.innerHTML = '<progress id="file" max="100" value="70"> 70% </progress>';
-    
-// }
-// createBarreXP()
+//  inserer une barre d'xp
+const main = document.querySelector("main");
+ function createBarreXP(value=0){
+
+     const progressBar = document.createElement("progress");
+     progressBar.setAttribute("id", "file");
+     progressBar.setAttribute("max", 100);
+     progressBar.setAttribute("value", xpActuel);
+     main.appendChild(progressBar);
+ }
+ let xpActuel = localStorage.getItem("xpActuel");
+ createBarreXP(xpActuel);
 
 
 
 // FOURRURE
 if(fourrure === "oui"){
  let fourrureNon = document.getElementById("fourrureNon");
- function fourrureOff(){
+    function fourrureOff(){
      localStorage.setItem("Fourrure", "non");
-     console.log("le click fourrureoff fonctionne");
      window.location.reload();
  }
- fourrureNon.addEventListener('onclick', fourrureOff);
+ fourrureNon.addEventListener('click', fourrureOff);
 }
+
+// function fourrureOff(){
+//     localStorage.setItem("Fourrure")
+// }
 
 
 // // LA MORT 

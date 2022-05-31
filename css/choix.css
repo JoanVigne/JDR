@@ -19,4 +19,10 @@ input:hover {
     color: white;
     cursor: pointer;
 }
+#containerPara {
+    max-width: 300px;
+}
+#containerPara img{
+    width: 64px;
+}
 

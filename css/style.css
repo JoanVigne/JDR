@@ -12,6 +12,8 @@ body {
     text-align: center;
     background-size: cover;
     background-repeat: no-repeat;
+    /* POUR EVITER LE SCROLL SUR LE BODY */
+    overflow-y: hidden;
 }
 h3 {
     background-color: rgb(112, 165, 19);

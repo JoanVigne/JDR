@@ -8,13 +8,6 @@ for(let f = 0; f < fleches.length; f++)
         choixNordNord.style.marginTop = "20px";
 };
 
-// function disparaitreFleche() {
-//     nord.classList.remove("hidden");
-//     sud.classList.remove("hidden");
-//     est.classList.remove("hidden");
-//     ouest.classList.remove("hidden");
-//     choixNordNord.style.marginTop = "20px";
-// };
 let nordNordDone = localStorage.getItem("choixNordNord")
 let choixNordNord = document.getElementById("choixNordNord");
 let choixNordNord1 = document.getElementById("choixNordNord1");
