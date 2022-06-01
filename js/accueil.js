@@ -57,5 +57,28 @@ function setEnemies() {
     "degats": 3
   }
   ]
+  let orcs = [{
+    "nom": "Argul",
+    "PV": 7,
+    "degats": 3
+  },
+  {
+    "nom": "Mordiz",
+    "PV": 5,
+    "degats": 4
+  },
+  {
+    "nom": "Ruzmid",
+    "PV": 7,
+    "degats": 3
+  },
+  {
+    "nom": "Chef Morodor",
+    "PV": 17,
+    "degats": 6
+  }
+
+]
+  localStorage.setItem("orcs", JSON.stringify(orcs)); 
   localStorage.setItem("loups", JSON.stringify(loups));
 }

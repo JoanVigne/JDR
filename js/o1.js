@@ -5,10 +5,24 @@ function apparaitreFleche() {
         for (let f = 0; f < fleches.length; f++)
                 fleches[f].classList.remove("hidden");
 };
+// LES STATS DES ORCS 
+let retrievedOrcs = localStorage.getItem("orcs");
+let orcsCamp = JSON.parse(retrievedOrcs);
+// premier orc...
+let orcCamp1 = orcsCamp[0];
+let nameOrc1 = orcCamp1["nom"];
+let PVorc = orcCamp1["PV"];
+let degatOrc = orcCamp1["degats"];
+// 2eme orc...
+
+
+
+
+let orcCamp = "<img src='../images/perso/orcCamp.png'>";
 
 // ARRIVEE AU CAMP O1
 let containerPara = document.getElementById("containerPara");
-let orcCamp = "<img src='../images/perso/orcCamp.png'>";
+
 // TABLEAUX DES CHOIX
 const raceChoices1 = {
         humain: [
@@ -24,7 +38,7 @@ const raceChoices1 = {
 }
 const raceChoices2 = {
         "nePasRepondre": [
-                "Negocier",
+                "Négocier",
                 "Sortir mon arme",
                 "Se moquer d'eux"
         ],
@@ -35,7 +49,7 @@ const raceChoices2 = {
         ],
         "repondreAgressivement": [
                 "Tremblant, ils rangent leurs armes",
-                "Ils respectent votre charisme mais décident de vous attaquer(+2degats)",
+                "Ils vous attaquent la peur au ventre [-1degat orcs]",
                 "Ils se fendent la poire et vous attaquent"
         ],
         "poserSonArme": [
@@ -61,20 +75,20 @@ let choixOrc1Arriver = localStorage.getItem("choixOrc1Arriver");
 let choixOrc1Second = localStorage.getItem("choixOrc1Second");
 function arriverO1() {
         // puis mettre result en condition
-        if(choixOrc1Second != null){
+        if (choixOrc1Second != null) {
                 finalChoixOrc1();
         }
-        if(choixOrc1Arriver != null){
+        if (choixOrc1Arriver != null) {
                 secondChoixOrc1();
         }
         // si on vient d'arriver sur la page 
         else {
                 alert("Vous vous approchez des lumières dans les montagnes, avant meme de comprendre ou vous êtes, deux orcs, haches à la main, vous entourent et empêchent toute fuite.");
                 if (race === "humain") {
-                        containerPara.innerHTML = "" + orcCamp + orcCamp + "<p>[grognements]<br>Pose ton arme sombre merde<br>[Les deux orcs ont leurs armes à la main..]</p>";
+                        containerPara.innerHTML = "" + orcCamp + orcCamp + "<p>[grognements]<br><strong>Pose ton arme sombre merde</strong><br>[Les deux orcs ont leurs armes à la main..]</p>";
                 }
                 if (race === "orc") {
-                        containerPara.innerHTML = "" + orcCamp + orcCamp + "<p>[grognements]<br>T'es qui?<br>[Main posée sur leurs armes]</p>";
+                        containerPara.innerHTML = "" + orcCamp + orcCamp + "<p>[grognements]<br><strong>T'es qui?</strong><br>[Main posée sur leurs armes]</p>";
                 }
                 setInput1(race);
         }
@@ -90,7 +104,7 @@ function setInput1(race) {
                 containerPara.appendChild(input);
                 input.addEventListener("click", setInLocalStorage);
         });
-}       
+}
 function setInputs(raceChoices2, reponse) {
         raceChoices2[reponse].forEach((element) => {
                 const input = document.createElement("input");
@@ -101,7 +115,7 @@ function setInputs(raceChoices2, reponse) {
                 input.addEventListener("click", setInLocalStorage2);
         });
 }
-
+// SECOND CHOIX 
 function secondChoixOrc1() {
         containerPara.innerHTML = "" + orcCamp + orcCamp + "";
         let choixOrc1Arriver = localStorage.getItem("choixOrc1Arriver");
@@ -114,8 +128,24 @@ function secondChoixOrc1() {
                 setInputs(raceChoices2, "repondreSereinement");
         }
         if (choixOrc1Arriver === "Répondre agressivement") {
-                containerPara.innerHTML += `<p>Les deux gardes commencent à s'impatienter,<br>ils sortent leurs armes.</p>  `
-                setInputs(raceChoices2, "repondreAgressivement");
+                apparaitreDé()
+                containerPara.innerHTML += `<p>Lancé le dé de 20 pour savoir si votre toupet sera récompensé.</p>`
+                dice.addEventListener("click", rollTheDice);
+                function rollTheDice() {
+                        let result = getRandomInt(21);
+                        alert("Vous avez lancé votre dé et fait un " + result)
+                        console.log(result);
+                        if (result <= 5) {
+                                localStorage.setItem("choixOrc1Second", "chef armé");
+                        }
+                        if (result > 5 && result < 11) {
+                                localStorage.setItem("choixOrc1Second", "Charismatique, ils accepent donc de vous emmener au chef, désarmé");
+                        }
+                        if (result >= 11) {
+                                localStorage.setItem("choixOrc1Second", "fight");
+                        }
+                        window.location.reload();
+                }    
         }
         if (choixOrc1Arriver === "poser son arme") {
                 containerPara.innerHTML += `<p>Les deux gardes commencent à s'impatienter,<br>ils sortent leurs armes.</p>  `
@@ -130,11 +160,54 @@ function secondChoixOrc1() {
                 setInputs(raceChoices2, "seBattreAvecHonneur");
         };
 }
-function finalChoixOrc1(){
+// TROISIEME CHOIX
+function finalChoixOrc1() {
+        if (choixOrc1Second === "Négocier"){
+                apparaitreDé()
+                containerPara.innerHTML = `<p>Lancé le dé de 20 pour savoir si ils sont sensible à vos négociations.</p>`
+                dice.addEventListener("click", rollTheDice);
+                function rollTheDice() {
+                        let result = getRandomInt(21);
+                        alert("Vous avez lancé votre dé et fait un " + result)
+                        console.log(result);
+                        if (result <= 5) {
+                                localStorage.setItem("choixOrc1Second", "Charismatique, ils accepent donc de vous emmener au chef, désarmé");
+                        }
+                        if (result > 5 && result < 11) {
+                                // REVENIR A LA PREMIERE DECISION 
+                        alert("Ils acceptent de reprendre la conversation du debut");
+                                localStorage.removeItem("choixOrc1Second");
+                                localStorage.removeItem("choixOrc1Arriver");
+                        }
+                        if (result >= 11) {
+                                localStorage.setItem("choixOrc1Second", "fight");
+                        }
+                        window.location.reload();
+                }    
+        }
+        if (choixOrc1Second === "Se moquer d'eux"){
+
+        }
+        if (choixOrc1Second === "Amenez moi au chef de ce lieu" || choixOrc1Second === "Charismatique, ils accepent donc de vous emmener au chef, désarmé") {
+                alert("Après vous avoir désarmé relativement poliement, ils vous emmenent au chef du camp.");
+                localStorage.setItem("désarmé", "oui");
+                window.location.href = "../html/o2.html";
+        }
+        if (choixOrc1Second === "fight" || choixOrc1Second === "Sortir mon arme") {
+                apparaitreDé()
+                containerPara.innerHTML = `${orcCamp}PV: ${PVorc}${orcCamp}<p>Que le combat commence!.</p>`
+        }
+        if (choixOrc1Second === "chef armé"){
+                alert("Ils vous escortent jusqu'au chef du camp, en evitant de croiser votre regard...");
+                window.location.href = "../html/o2.html";
+        }
 
 }
+
+
+
 // LOCAL STORAGE
-function setInLocalStorage(event) {     
+function setInLocalStorage(event) {
         localStorage.setItem("choixOrc1Arriver", event.target.value);
         window.location.reload();
 }
@@ -151,6 +224,9 @@ function setInLocalStorage3(event) {
 function getRandomInt(max) {
         return Math.floor(Math.random() * max);
 }
-// faire apparaitre les dès
-// let dice = document.getElementById("dice");
-// dice.innerHTML = "<img src='../images/dé-96.png'>";
+function apparaitreDé() {
+        let dice = document.getElementById("dice");
+        dice.innerHTML = "<img src='../images/dé-96.png'>";
+}
+
+
