@@ -8,20 +8,29 @@ function apparaitreFleche() {
 // LES STATS DES ORCS 
 let retrievedOrcs = localStorage.getItem("orcs");
 let orcsCamp = JSON.parse(retrievedOrcs);
-// premier orc...
-let orcCamp1 = orcsCamp[0];
-let nameOrc1 = orcCamp1["nom"];
-let PVorc = orcCamp1["PV"];
-let degatOrc = orcCamp1["degats"];
-// 2eme orc...
-
-
-
-
-let orcCamp = "<img src='../images/perso/orcCamp.png'>";
-
 // ARRIVEE AU CAMP O1
 let containerPara = document.getElementById("containerPara");
+let orcCamp = "<img src='../images/perso/orcCamp.png'>";
+// boucle pour créer des orcs
+function creerOrcs() {
+        orcsCamp.forEach((orc) => {
+                console.log("orc",orc);
+                // const nomOrc = orc["nom"];
+                // const pvOrc = orc["PV"];
+                // const degatsOrc = orc["degats"];
+                // const img = orc.createElement("img");
+                // img.setAttribute("src", "../images/perso/orcCamp.png");
+                // img.setAttribute("alt", "Orc enemie");
+                // const statsOrcCamp = document.createElement("h4");
+                // statsOrcCamp.innerHTML = `Nom: ${nomOrc}<br>PV: ${pvOrc}<br>Degats: ${degatsOrc}`;
+                
+        });
+}
+
+
+
+
+
 
 // TABLEAUX DES CHOIX
 const raceChoices1 = {

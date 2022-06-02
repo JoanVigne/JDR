@@ -60,24 +60,27 @@ function setEnemies() {
   let orcs = [{
     "nom": "Argul",
     "PV": 7,
-    "degats": 3
+    "degats": 3,
+    "image": "<img src='../images/perso/orcCamp.png' alt''>"
   },
   {
     "nom": "Mordiz",
     "PV": 5,
-    "degats": 4
+    "degats": 4,
+    "image": "<img src='../images/perso/orcCamp.png' alt''>"
   },
   {
     "nom": "Ruzmid",
     "PV": 7,
-    "degats": 3
+    "degats": 3,
+    "image": "<img src='../images/perso/orcCamp.png' alt''>"
   },
   {
     "nom": "Chef Morodor",
     "PV": 17,
-    "degats": 6
+    "degats": 6,
+    "image": "<img src='../images/perso/chefOrc.png' alt''>"
   }
-
 ]
   localStorage.setItem("orcs", JSON.stringify(orcs)); 
   localStorage.setItem("loups", JSON.stringify(loups));
