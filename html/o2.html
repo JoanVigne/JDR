@@ -16,26 +16,29 @@
     <h3>Camp orc</h3>
     <main>
         <div class="container world containerOrc" id="containerWorld">
-            <div class="tooltip nordContainer"><img src="../images/fleche-nord.png" alt="" id="nord" class="arrow hidden">
+            <div class="tooltip nordContainer hidden"><img src="../images/fleche-nord.png" alt="" id="nord" class="arrow hidden">
                 <p class="tooltiptext displayNone"></p>
             </div>
+            <!-- POUR Y METTRE ORCS -->
+            <div id="containerPara"></div>
             <!-- middle -->
             <div class="middleContainer">
-            <div class="tooltip"> <img src="../images/fleche-ouest.png" alt="" id="ouest" class="arrow">
+            <div class="tooltip hidden"> <img src="../images/fleche-ouest.png" alt="" id="ouest" class="arrow">
                 <p class="tooltiptext">Vous pouvez voir un point de lumière dans les montagnes au loin</p>
             </div>
            <!-- PLAYER --> <div id="player"></div> 
-            <div class="tooltip "> <img src="../images/fleche-est.png" alt="" id="est" class="arrow">
+            <div class="tooltip hidden"> <img src="../images/fleche-est.png" alt="" id="est" class="arrow">
                 <p class="tooltiptext">Rien que du blizzard et des montagnes</p>
             </div>  
             </div>
             <!-- end of middle -->
-            <div class="tooltip sudContainer"><img src="../images/fleche-sud.png" alt="" id="sud" class="arrow">
+            <div class="tooltip sudContainer hidden"><img src="../images/fleche-sud.png" alt="" id="sud" class="arrow">
                 <p class="tooltiptext">Il neige moins par là</p>
             </div>
         </div>
     </main>
     <script src="../js/player.js"></script>
+    <script src="../js/o2.js"></script>
 
     <script>
         nord.addEventListener('click', function () {

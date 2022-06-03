@@ -1,10 +1,4 @@
 
-// fleche direction apparaitre apres scenario
-let fleches = document.getElementsByClassName("tooltip");
-function apparaitreFleche() {
-        for (let f = 0; f < fleches.length; f++)
-                fleches[f].classList.remove("hidden");
-};
 
 
 // LES STATS DES ORCS 
@@ -191,40 +185,42 @@ function finalChoixOrc1() {
         if (choixOrc1Second === "Amenez moi au chef de ce lieu" || choixOrc1Second === "Charismatique, ils accepent donc de vous emmener au chef, désarmé") {
                 alert("Après vous avoir désarmé relativement poliement, ils vous emmenent au chef du camp.");
                 localStorage.setItem("désarmé", "oui");
-                window.location.href = "../html/o2.html";
+                redirectionO2();
         }
         if (choixOrc1Second === "fight" || choixOrc1Second === "Sortir mon arme") {
                 alert("Que le combat commence!")
-                        let PVACTUELPREMIERORC = localStorage.getItem("PVACTUELPREMIERORC");
-                        let PVACTUELDEUXIEMEORC = localStorage.getItem("PVACTUELDEUXIEMEORC");
-                        let premierOrc = document.createElement("div");
-                        premierOrc.innerHTML = `${orcsCamp[0].image}<br><h4>${orcsCamp[0].nom}<br>PV: ?<br>${orcsCamp[0].degats}</h4>`;
-                        let deuxiemeOrc = document.createElement("div");
-                        deuxiemeOrc.innerHTML = `${orcsCamp[1].image}<br><h4>${orcsCamp[1].nom}<br>PV: ?<br>${orcsCamp[1].degats}</h4>`;
-                function apparition() {   
+                let PVACTUELPREMIERORC = localStorage.getItem("PVACTUELPREMIERORC");
+                let PVACTUELDEUXIEMEORC = localStorage.getItem("PVACTUELDEUXIEMEORC");
+                let premierOrc = document.createElement("div");
+                premierOrc.innerHTML = `${orcsCamp[0].image}<br><h4>${orcsCamp[0].nom}<br>PV: ?<br>${orcsCamp[0].degats}</h4>`;
+                let deuxiemeOrc = document.createElement("div");
+                deuxiemeOrc.innerHTML = `${orcsCamp[1].image}<br><h4>${orcsCamp[1].nom}<br>PV: ?<br>${orcsCamp[1].degats}</h4>`;
+                function apparition() {
                         containerPara.appendChild(premierOrc);
                         containerPara.appendChild(deuxiemeOrc);
-                        console.log("La fonction apparition vient d'etre lancé");
                 }
                 function reapparition() {
-                        if (PVACTUELPREMIERORC <= 0) {
-                                premierOrc.innerHTML = `<p>Argul est au sol`;
-                                orcsCamp[0].degats = 0;
+                        if (PVACTUELDEUXIEMEORC <= 0) {
+                                console.log("Deuxieme orc mort");
+                                // quand les 2 orcs sont vaincu:
+                                orcsCamp[0].PV = 0;
+                                orcsCamp[1].PV = 0;
+                                localStorage.setItem("orcs", JSON.stringify(orcsCamp));
+                                alert(`Vous avez vaincu les deux gardes. Le combat a rameuter tout le monde, vous acceptez de les suivre jusqu'à leur chef`);                            
+                                redirectionO2();
                                 return;
                         }
-                        if (PVACTUELDEUXIEMEORC <= 0) {
-                                mortDesOrcs();
+                        if (PVACTUELPREMIERORC <= 0) {
+                                premierOrc.innerHTML = `<p>Argul est au sol`;
+                                orcsCamp[0].degats = 0; 
                                 return;
                         }
                         containerPara.replaceChild(premierOrc, premierOrc);
                         containerPara.replaceChild(deuxiemeOrc, deuxiemeOrc);
-                        console.log("Reapparition");
                 }
                 apparition()
                 apparaitreDé()
                 containerPara.style.display = "flex";
-               
-
                 dice.addEventListener("click", rollTheDice);
                 function rollTheDice() {
                         let degatPerso = getRandomInt(degats + 1);
@@ -233,56 +229,30 @@ function finalChoixOrc1() {
                         let totalDegats = degatPremierOrc + degatDeuxiemeOrc;
                         alert(`Vous infligez ${degatPerso} de degat,\n ${orcsCamp[0].nom} vous en inflige ${degatPremierOrc} \n ${orcsCamp[1].nom} vous en inflige ${degatDeuxiemeOrc}`);
                         PVACTUEL = PVACTUEL - totalDegats;
-                        
-                        
                         if (PVACTUELPREMIERORC >= 1) {
                                 PVACTUELPREMIERORC = PVACTUELPREMIERORC - degatPerso;
                                 console.log("la ou la soustraction des dommages est", PVACTUELPREMIERORC)
-
                         }
                         else {
                                 PVACTUELDEUXIEMEORC = PVACTUELDEUXIEMEORC - degatPerso;
                         }
-                        console.log("Apres toutes les conditions---", PVACTUELPREMIERORC)
                         localStorage.setItem("PVACTUELPREMIERORC", PVACTUELPREMIERORC);
                         localStorage.setItem("PVACTUELDEUXIEMEORC", PVACTUELDEUXIEMEORC);
+                        localStorage.setItem("PVACTUEL", PVACTUEL);
                         affichagePerso();
                         reapparition();
                 }
         }
         if (choixOrc1Second === "chef armé") {
                 alert("Ils vous escortent jusqu'au chef du camp, en evitant de croiser votre regard...");
-                window.location.href = "../html/o2.html";
+                redirectionO2();
         }
 }
 // Morts DES ORCS
-
-function mortDesOrcs() {
-        if (orcsCamp[0].PV <= 0) {
-                        localStorage.setItem("PVACTUEL", PVACTUEL);
-                        orcsCamp[0].PV = 0;
-                        localStorage.setItem("orcs", JSON.stringify(orcs));
-                        window.location.reload();
-        }
-        if (orcsCamp[1].PV <= 0) {
-                localStorage.setItem("PVACTUEL", PVACTUEL);
-                orcsCamp[1].PV = 0;
-                localStorage.setItem("orcs", JSON.stringify(orcs));
-                window.location.reload();
-        }
-        if (orcsCamp[2].PV <= 0) {
-                localStorage.setItem("PVACTUEL", PVACTUEL);
-                orcsCamp[2].PV = 0;
-                localStorage.setItem("orcs", JSON.stringify(orcs));
-                window.location.reload();
-        }
-        if (orcsCamp[3].PV <= 0) {
-                localStorage.setItem("PVACTUEL", PVACTUEL);
-                orcsCamp[3].PV = 0;
-                localStorage.setItem("orcs", JSON.stringify(orcs));
-                window.location.reload();
-        }
+function redirectionO2(){
+        window.location.href = "../html/o2.html";
 }
+
 
 // LOCAL STORAGE
 function setInLocalStorage(event) {
