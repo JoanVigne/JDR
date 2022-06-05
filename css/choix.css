@@ -22,7 +22,11 @@ input:hover {
 #containerPara {
     max-width: 300px;
 }
+#containerPara #chefOrc{
+    width: 140px;
+}
 #containerPara img{
     width: 64px;
 }
+
 

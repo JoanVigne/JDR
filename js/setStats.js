@@ -20,7 +20,6 @@
         }];
         localStorage.setItem("PVACTUEL", 20);
         localStorage.setItem("stats", JSON.stringify(stats));
-         window.location.href = "spawn.html"; // rediriger vers l'autre page si le nom est bien rentré
      }
      else if (race === "humain") {
         let stats = [{
@@ -33,7 +32,6 @@
        }];
        localStorage.setItem("PVACTUEL", 15);
        localStorage.setItem("stats", JSON.stringify(stats));
-         window.location.href = "spawn.html"; // rediriger vers l'autre page si le nom est bien rentré
      }
      else if (race === "savana") {
         let stats = [{
@@ -46,6 +44,8 @@
        }];
        localStorage.setItem("PVACTUEL", 20);
        localStorage.setItem("stats", JSON.stringify(stats));
-         window.location.href = "spawn.html"; // rediriger vers l'autre page si le nom est bien rentré
      }
+
+     window.location.href = "spawn.html"; // rediriger vers l'autre page si le nom est bien rentré
+     localStorage.setItem("xpActuel", 0);
  };  

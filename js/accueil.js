@@ -79,7 +79,7 @@ function setEnemies() {
     "nom": "Chef Morodor",
     "PV": 17,
     "degats": 6,
-    "image": "<img src='../images/perso/chefOrc.png' alt'' width='100px'>"
+    "image": "<img src='../images/perso/chefOrc.png' alt'' id='chefOrc'>"
   }
 ]
   localStorage.setItem("orcs", JSON.stringify(orcs)); 

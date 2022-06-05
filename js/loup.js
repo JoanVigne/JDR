@@ -46,13 +46,14 @@ function rollTheDice() {
     let dammageLoup = getRandomInt(degatsLoup) + 1;
     alert("Vous infligez " + dammagePlayer + " de dommage à la bête." + "\n" + " le loup riposte et vous renvoie " + dammageLoup + "  de dammage");
     PVACTUEL = PVACTUEL - dammageLoup;
-    playerContainer.innerHTML = "<img src='../images/perso/" + race + ".png' alt='personnage " + race + "'><br><h4> PV = " + PVACTUEL + "<br> Dégats = " + degats + "</h4><br>";
+    affichagePerso();
     pvLoup = pvLoup - dammagePlayer;
     loupContainer.innerHTML = "<img src='../images/perso/loup.png' alt=''> <br><h4> PV = " + pvLoup + "<br> Dégats  =" + degatsLoup + "</h4>";
 
     // mettre a jour localstorage Loup 0 PV
     if (pvLoup <= 0) {
         localStorage.setItem("PVACTUEL", PVACTUEL);
+        localStorage.setItem("xpActuel", parseInt(xpActuel) + 20);
         loup.PV = 0;
         localStorage.setItem("loups", JSON.stringify(loups));
         window.location.reload();

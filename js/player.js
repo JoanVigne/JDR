@@ -49,8 +49,8 @@ statsIn.addEventListener("click", hideStats);
 //  inserer une barre d'xp
 const main = document.querySelector("main");
  function createBarreXP(value=0){
-
      const progressBar = document.createElement("progress");
+     let xpActuel = localStorage.getItem("xpActuel");
      progressBar.setAttribute("id", "file");
      progressBar.setAttribute("max", 100);
      progressBar.setAttribute("value", xpActuel);
@@ -58,7 +58,12 @@ const main = document.querySelector("main");
  }
  let xpActuel = localStorage.getItem("xpActuel");
  createBarreXP(xpActuel);
-
+if(xpActuel >= 100){
+    localStorage.setItem("PVACTUEL", 20);
+    alert("Votre experience aux nombreux combats que vous avez menez vous fait récuperer un grand nombre de PV !")
+    localStorage.setItem("xpActuel", 0);
+    window.location.reload();
+}
 
 
 // FOURRURE
@@ -81,7 +86,7 @@ if(fourrure === "oui"){
 function dead() {
     if (PVACTUEL <= 0) {
         alert('YOU ARE OUT OF LIFE POINT');
-        window.location.href = "accueil.html";
+        window.location.href = "../accueil.html";
     }
 }
 dead();

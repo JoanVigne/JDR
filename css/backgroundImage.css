@@ -1,5 +1,8 @@
 /* LES BG IMAGES */
 /* DU BODY */
+.zoneChefOrc {
+    background-image: url("../images/nord/ruineNeige.jpg");
+}
 .zoneSpawn {
     background-image: url("../images/spawn.jpg");
 }
@@ -24,4 +27,7 @@
 }
 .containerOrc {
     background-image: url("../images/nord/campOrc.jpg");
+}
+.containerPrison {
+    background-image: url("../images/nord/prisonOrc.jpg");
 }
