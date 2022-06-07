@@ -12,7 +12,6 @@ main {
 }
 .world { 
     /* opacity: 0;              C EST POUR LE TOGGLECONTAINER */ 
-    border: 2px black solid;
     border-radius: 1%;
 }
 /*  PLAYER */

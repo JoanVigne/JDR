@@ -1,6 +1,5 @@
 
 
-
 // LES STATS DES ORCS 
 let retrievedOrcs = localStorage.getItem("orcs");
 let orcsCamp = JSON.parse(retrievedOrcs);
@@ -11,9 +10,7 @@ let orcCamp = "<img src='../images/perso/orcCamp.png'>";
 
 // Mettre les PVACTUEL dans localStorage
 localStorage.setItem("PVACTUELPREMIERORC", orcsCamp[0].PV);
-
 localStorage.setItem("PVACTUELDEUXIEMEORC", orcsCamp[1].PV);
-
 
 
 // TABLEAUX DES CHOIX
@@ -62,7 +59,6 @@ const raceChoices2 = {
                 "Leur faire une blague"
         ]
 };
-
 // ARRIVEE ET SUITE
 // recup des choix deja fait
 let choixOrc1Arriver = localStorage.getItem("choixOrc1Arriver");
@@ -128,12 +124,12 @@ function secondChoixOrc1() {
                 function rollTheDice() {
                         let result = getRandomInt(21);
                         alert("Vous avez lancé votre dé et fait un " + result)
-                        console.log(result);
+   
                         if (result <= 5) {
                                 localStorage.setItem("choixOrc1Second", "chef armé");
                         }
                         if (result > 5 && result < 11) {
-                        }       localStorage.setItem("choixOrc1Second", "Charismatique");
+                        } localStorage.setItem("choixOrc1Second", "Charismatique");
                         if (result >= 11) {
                                 localStorage.setItem("choixOrc1Second", "fight");
                         }
@@ -186,11 +182,11 @@ function finalChoixOrc1() {
                 localStorage.setItem("choixOrc1Second", "Charismatique");
                 redirectionO2();
         }
-        if(choixOrc1Second === "Leur donner l'ordre de vous emmener au chef"){
+        if (choixOrc1Second === "Leur donner l'ordre de vous emmener au chef") {
                 apparaitreDé()
                 containerPara.innerHTML = `<p>Lancé le dé de 20 pour savoir leur reaction...</p>`
                 dice.addEventListener("click", rollTheDice);
-                function rollTheDice(){
+                function rollTheDice() {
                         let result = getRandomInt(21);
                         alert("Vous avez lancé votre dé et fait un " + result)
                         if (result <= 5) {
@@ -199,7 +195,7 @@ function finalChoixOrc1() {
                         }
                         if (result > 5 && result < 11) {
                                 alert("Vous avez une seconde chance de lancé de dé");
-                                
+
                         }
                         if (result >= 11) {
                                 localStorage.setItem("choixOrc1Second", "fight");
@@ -209,22 +205,22 @@ function finalChoixOrc1() {
                 }
         }
         // PRISON
-        if(choixOrc1Second === "Se laisser faire") {
+        if (choixOrc1Second === "Se laisser faire") {
                 alert("C'est dans une prison insalubre que vous êtes trainé de force...");
                 redirectionO3();
         }
-        if(choixOrc1Second === "Demander un peu de respect") {
+        if (choixOrc1Second === "Demander un peu de respect") {
                 alert("Les deux orcs vous frappent[-2 PV] et vous attrappent, rendant cette tentative de demande de respect totalemment inutile");
                 localStorage.setItem("PVACTUEL", PVACTUEL - 2);
                 redirectionO3();
         }
-        
+
         // fight
-        if ( choixOrc1Second === "se battre avec honneur" || choixOrc1Second === "Changer d'avis et se battre pour votre honneur" || choixOrc1Second === "Attaquer" || choixOrc1Second === "Sortir mon arme" || choixOrc1Second === "Vous voulez tater de ma superbe?") {
+        if (choixOrc1Second === "se battre avec honneur" || choixOrc1Second === "Changer d'avis et se battre pour votre honneur" || choixOrc1Second === "Attaquer" || choixOrc1Second === "Sortir mon arme" || choixOrc1Second === "Vous voulez tater de ma superbe?") {
                 localStorage.setItem("choixOrc1Second", "fight");
                 window.location.reload();
         }
-        if(choixOrc1Second === "Se moquer d'eux" || choixOrc1Second === "Leur faire une blague"){
+        if (choixOrc1Second === "Se moquer d'eux" || choixOrc1Second === "Leur faire une blague") {
                 alert("Ils vous regardent, dubitatifs, et décident d'engager le combat");
                 localStorage.setItem("choixOrc1Second", "fight");
                 window.location.reload();
@@ -243,20 +239,19 @@ function finalChoixOrc1() {
                 }
                 function reapparition() {
                         if (PVACTUELDEUXIEMEORC <= 0) {
-                                console.log("Deuxieme orc mort");
                                 // quand les 2 orcs sont vaincu:
                                 orcsCamp[0].PV = 0;
                                 orcsCamp[1].PV = 0;
                                 localStorage.setItem("xpActuel", parseInt(xpActuel) + 60);
                                 localStorage.setItem("orcs", JSON.stringify(orcsCamp));
                                 localStorage.setItem("désarmé", "oui");
-                                alert(`Vous avez vaincu les deux gardes. Le combat a rameuter tout le monde, vous acceptez de les suivre jusqu'à leur chef`);                            
+                                alert(`Vous avez vaincu les deux gardes. Le combat a rameuter tout le monde, vous acceptez de les suivre jusqu'à leur chef`);
                                 redirectionO2();
                                 return;
                         }
                         if (PVACTUELPREMIERORC <= 0) {
                                 premierOrc.innerHTML = `<p>Argul est au sol`;
-                                orcsCamp[0].degats = 0; 
+                                orcsCamp[0].degats = 0;
                                 return;
                         }
                         containerPara.replaceChild(premierOrc, premierOrc);
@@ -275,7 +270,6 @@ function finalChoixOrc1() {
                         PVACTUEL = PVACTUEL - totalDegats;
                         if (PVACTUELPREMIERORC >= 1) {
                                 PVACTUELPREMIERORC = PVACTUELPREMIERORC - degatPerso;
-                                console.log("la ou la soustraction des dommages est", PVACTUELPREMIERORC)
                         }
                         else {
                                 PVACTUELDEUXIEMEORC = PVACTUELDEUXIEMEORC - degatPerso;
@@ -294,12 +288,12 @@ function finalChoixOrc1() {
         }
 }
 // Morts DES ORCS
-function redirectionO2(){
+function redirectionO2() {
         window.location.href = "../html/o2.html";
 }
-function redirectionO3(){
+function redirectionO3() {
         window.location.href = "../html/o3.html";
-  
+
 }
 
 
