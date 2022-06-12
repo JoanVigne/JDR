@@ -1,16 +1,16 @@
 
 
-// LES STATS DES ORCS 
-let retrievedOrcs = localStorage.getItem("orcs");
-let orcsCamp = JSON.parse(retrievedOrcs);
+// LES STATS DES ORCS  DEJA MIS DANS LE PLAYER.JS
+// let retrievedOrcs = localStorage.getItem("orcs");
+// let orcsCamp = JSON.parse(retrievedOrcs);
 
 // ARRIVEE AU CAMP O1
 let containerPara = document.getElementById("containerPara");
 let orcCamp = "<img src='../images/perso/orcCamp.png'>";
 
 // Mettre les PVACTUEL dans localStorage
-localStorage.setItem("PVACTUELPREMIERORC", orcsCamp[0].PV);
-localStorage.setItem("PVACTUELDEUXIEMEORC", orcsCamp[1].PV);
+localStorage.setItem("PVACTUELPREMIERORC", orcs[0].PV);
+localStorage.setItem("PVACTUELDEUXIEMEORC", orcs[1].PV);
 
 
 // TABLEAUX DES CHOIX
@@ -230,9 +230,9 @@ function finalChoixOrc1() {
                 let PVACTUELPREMIERORC = localStorage.getItem("PVACTUELPREMIERORC");
                 let PVACTUELDEUXIEMEORC = localStorage.getItem("PVACTUELDEUXIEMEORC");
                 let premierOrc = document.createElement("div");
-                premierOrc.innerHTML = `${orcsCamp[0].image}<br><h4>${orcsCamp[0].nom}<br>PV: ?<br>${orcsCamp[0].degats}</h4>`;
+                premierOrc.innerHTML = `${orcs[0].image}<br><h4>${orcs[0].nom}<br>PV: ?<br>${orcs[0].degats}</h4>`;
                 let deuxiemeOrc = document.createElement("div");
-                deuxiemeOrc.innerHTML = `${orcsCamp[1].image}<br><h4>${orcsCamp[1].nom}<br>PV: ?<br>${orcsCamp[1].degats}</h4>`;
+                deuxiemeOrc.innerHTML = `${orcs[1].image}<br><h4>${orcs[1].nom}<br>PV: ?<br>${orcs[1].degats}</h4>`;
                 function apparition() {
                         containerPara.appendChild(premierOrc);
                         containerPara.appendChild(deuxiemeOrc);
@@ -240,10 +240,10 @@ function finalChoixOrc1() {
                 function reapparition() {
                         if (PVACTUELDEUXIEMEORC <= 0) {
                                 // quand les 2 orcs sont vaincu:
-                                orcsCamp[0].PV = 0;
-                                orcsCamp[1].PV = 0;
+                                orcs[0].PV = 0;
+                                orcs[1].PV = 0;
                                 localStorage.setItem("xpActuel", parseInt(xpActuel) + 60);
-                                localStorage.setItem("orcs", JSON.stringify(orcsCamp));
+                                localStorage.setItem("orcs", JSON.stringify(orcs));
                                 localStorage.setItem("désarmé", "oui");
                                 alert(`Vous avez vaincu les deux gardes. Le combat a rameuter tout le monde, vous acceptez de les suivre jusqu'à leur chef`);
                                 redirectionO2();
@@ -251,7 +251,7 @@ function finalChoixOrc1() {
                         }
                         if (PVACTUELPREMIERORC <= 0) {
                                 premierOrc.innerHTML = `<p>Argul est au sol`;
-                                orcsCamp[0].degats = 0;
+                                orcs[0].degats = 0;
                                 return;
                         }
                         containerPara.replaceChild(premierOrc, premierOrc);
@@ -263,10 +263,10 @@ function finalChoixOrc1() {
                 dice.addEventListener("click", rollTheDice);
                 function rollTheDice() {
                         let degatPerso = getRandomInt(degats + 1);
-                        let degatPremierOrc = getRandomInt(orcsCamp[0].degats + 1);
-                        let degatDeuxiemeOrc = getRandomInt(orcsCamp[1].degats + 1);
+                        let degatPremierOrc = getRandomInt(orcs[0].degats + 1);
+                        let degatDeuxiemeOrc = getRandomInt(orcs[1].degats + 1);
                         let totalDegats = degatPremierOrc + degatDeuxiemeOrc;
-                        alert(`Vous infligez ${degatPerso} de degat,\n ${orcsCamp[0].nom} vous en inflige ${degatPremierOrc} \n ${orcsCamp[1].nom} vous en inflige ${degatDeuxiemeOrc}`);
+                        alert(`Vous infligez ${degatPerso} de degat,\n ${orcs[0].nom} vous en inflige ${degatPremierOrc} \n ${orcs[1].nom} vous en inflige ${degatDeuxiemeOrc}`);
                         PVACTUEL = PVACTUEL - totalDegats;
                         if (PVACTUELPREMIERORC >= 1) {
                                 PVACTUELPREMIERORC = PVACTUELPREMIERORC - degatPerso;

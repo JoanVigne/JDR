@@ -23,5 +23,9 @@ main {
     transition: transform 2s;
 }
 
+.soldatOrc {
+    width: 50px;
+}
+
 
 

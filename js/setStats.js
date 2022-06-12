@@ -19,7 +19,7 @@
             "social": 5
         }];
         localStorage.setItem("PVACTUEL", 20);
-        localStorage.setItem("stats", JSON.stringify(stats));
+        localStorage.setItem("stats", JSON.stringify(stats));   
      }
      else if (race === "humain") {
         let stats = [{
@@ -46,6 +46,6 @@
        localStorage.setItem("stats", JSON.stringify(stats));
      }
 
-     window.location.href = "spawn.html"; // rediriger vers l'autre page si le nom est bien rentré
+     window.location.href = "spawn.html"; 
      localStorage.setItem("xpActuel", 0);
  };  

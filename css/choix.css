@@ -24,9 +24,11 @@ input:hover {
 }
 #containerPara #chefOrc{
     width: 140px;
+    height: 140px;
 }
 #containerPara img{
     width: 64px;
+    height: 64px;
 }
 
 
