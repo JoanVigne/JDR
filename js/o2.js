@@ -276,7 +276,8 @@ function consequences() {
     }
     if (dernierChoixStorage === "fight") {
         if (PVACTUELCHEF >= 0) {
-            localStorage.setItem("xpActuel", parseInt(xpActuel) + 100);
+            localStorage.setItem("xpActuel", parseInt(xpActuel) + 70);
+            affichagePerso();
             containerPara.innerHTML = `Vous avez vaincu le chef ! Les soldats du camp se dirige vers vous...`;
             // buttons      
             containerPara.innerHTML += `<input id="combattre" type="button" class="choix" value="Provoquer tout le monde et combattre">`;
@@ -307,22 +308,14 @@ function consequences() {
     }
     if (dernierChoixStorage === "fightPourLead") {
         if (PVACTUELCHEF <= 0) {
-            const inputDuLead = {
-                "Chef Mort": [
-                    "Demandez aux soldats de vous suivre",
-                    "Provoquer tout le monde et combattre",
-                    "Repartir seul sans rien dire"
-                ]
-            };
-            localStorage.setItem("xpActuel", parseInt(xpActuel) + 100);
+            localStorage.setItem("xpActuel", parseInt(xpActuel) + 70);
+            affichagePerso();
             containerPara.innerHTML = `<h4>Vous avez vaincu le chef</h4><br><p>Les orcs du camp sont autour de vous sans bouger</p>
             <input id="soldatsAvecMoi" type="button" class="choix" value="Demandez aux soldats de vous suivre"><br>
             <input id="combattre" type="button" class="choix" value="Provoquer tout le monde et combattre"><br>
             <input id="solo" type="button" class="choix" value="Repartir seul sans rien dire">
             `;
-            // buttons
-            // setInputLead(inputDuLead, "Chef Mort");
-            //
+
             let soldatEvent = document.getElementById("soldatsAvecMoi");
             soldatEvent.addEventListener("click", soldatEventFunction);
             let combattreEvent = document.getElementById("combattre");
@@ -347,8 +340,7 @@ function consequences() {
         }
     }
     if (dernierChoixStorage === "fightWithAll") {
-       
-                
+ 
         alert("Un combat potentiellement perdu d'avance face à autant d'ennemie !");
         containerPara.innerHTML = "";
         apparaitreDé();
@@ -378,17 +370,6 @@ function setInputApresPremierChoix(deuxiemeChoix, reponse) {
         input.addEventListener("click", setInLocalStorage2);
     });
 }
-// input consequence Lead
-// function setInputLead(inputDuLead, reponse) {
-//     inputDuLead[reponse].forEach(element => {
-//         const input = document.createElement("input");
-//         input.setAttribute("type", "button");
-//         input.setAttribute("value", element);
-//         input.classList.add("choix");
-//         containerPara.appendChild(input);
-//         input.addEventListener("click", setInLocalStorageLead);
-//     });
-// }
 
 // LOCAL STORAGE SET IN
 function setInLocalStorage(event) {
@@ -476,22 +457,20 @@ function soloEventRace() {
 // SEUL CONTRE 4
 function apparitionDes4() {
     let ZO = document.createElement("div");
-    ZO.innerHTML = `${orcs[4].image}<br><h4 id="zoText">${orcs[4].nom}<br>PV: ?<br>Degats:${orcs[4].degats}</h4>`;
+    ZO.innerHTML = `${orcs[4].image}<br><h4 id="zoText">${orcs[4].nom}<br>PV:${orcs[4].PV}<br>Degats:${orcs[4].degats}</h4>`;
     let RETU = document.createElement("div");
-    RETU.innerHTML = `${orcs[5].image}<br><h4 id="retuText">${orcs[5].nom}<br>PV: ?<br>Degats:${orcs[5].degats}</h4>`;
+    RETU.innerHTML = `${orcs[5].image}<br><h4 id="retuText">${orcs[5].nom}<br>PV:${orcs[5].PV}<br>Degats:${orcs[5].degats}</h4>`;
     let FOUZ = document.createElement("div");
-    FOUZ.innerHTML = `${orcs[6].image}<br><h4 id="fouzText">${orcs[6].nom}<br>PV: ?<br>Degats:${orcs[6].degats}</h4>`;
+    FOUZ.innerHTML = `${orcs[6].image}<br><h4 id="fouzText">${orcs[6].nom}<br>PV:${orcs[6].PV}<br>Degats:${orcs[6].degats}</h4>`;
     let WAI = document.createElement("div");
-    WAI.innerHTML = `${orcs[7].image}<br><h4 id="waiText">${orcs[7].nom}<br>PV: ?<br>Degats:${orcs[7].degats}</h4>`;
+    WAI.innerHTML = `${orcs[7].image}<br><h4 id="waiText">${orcs[7].nom}<br>PV:${orcs[7].PV}<br>Degats:${orcs[7].degats}</h4>`;
     containerPara.style.display = "flex";
         containerPara.appendChild(ZO);
         containerPara.appendChild(RETU);
         containerPara.appendChild(FOUZ);
         containerPara.appendChild(WAI);
 }
-function reapparitionDes4(){
-    
-}
+
 function rollTheDiceVS4Orcs(){
     let ZO = document.getElementById("zoText");
     let RETU = document.getElementById("retuText");
@@ -499,31 +478,64 @@ function rollTheDiceVS4Orcs(){
     let WAI = document.getElementById("waiText");
 
     let degatPerso = getRandomInt(degats + 1);
-    let totalDegats = getRandomInt(orcs[4].degats + 1) + getRandomInt(orcs[5].degats + 1) + getRandomInt(orcs[6].degats + 1) + getRandomInt(orcs[7].degats + 1);
-    alert(`Vous infligez ${degatPerso} de degat,\n Ils vous attaquent tous et vous infligent ${totalDegats}`);
+
+   
     
-    if(degatPerso >= 3){
-        if( FOUZ === "<p>Fouz est au sol</p>"){
-            WAI.innerHTML = "<p>Waî est au sol</p>"
-            alert("vous avez nettoyez le camp des orcs!! Vous fuyez.");
-            window.location.href = "NordNordOuest.html";
-        }
-        if( RETU === "<p>Retu est au sol</p>"){
-            FOUZ.innerHTML = "<p>Fouz est au sol</p>"
-            PVACTUEL = PVACTUEL - (totalDegats - 3);
-        }
-        if( ZO === "<h4><p>Zo est au sol</p></h4>"){
-        RETU.innerHTML = "<p>Retu est au sol</p>"
-        PVACTUEL = PVACTUEL - (totalDegats - 2);
-       }
-       else{
-        ZO.innerHTML = "<p>Zo est au sol</p>"
-        PVACTUEL = PVACTUEL - (totalDegats - 1);
-       }
+    if(orcs[7].PV <= 0){
+
+        console.log("combat terminé");
+        
     }
-    else {
+    else if(orcs[6].PV <= 0){     
+        let totalDegats =  getRandomInt(orcs[5].degats + 1) + getRandomInt(orcs[6].degats + 1) + getRandomInt(orcs[7].degats + 1);
+   
+        orcs[7].PV = orcs[7].PV - degatPerso;
+        alert(`Vous infligez ${degatPerso} de degat à Retu,\n Le dernier vous inflige ${totalDegats}`);
         PVACTUEL = PVACTUEL - totalDegats;
-    };
+    }
+    else if(orcs[5].PV <= 0){ 
+        let totalDegats = getRandomInt(orcs[6].degats + 1) + getRandomInt(orcs[7].degats + 1);
+
+         orcs[6].PV = orcs[6].PV - degatPerso; 
+         alert(`Vous infligez ${degatPerso} de degat à Retu,\n Les 2 autres vous infligent ${totalDegats}`);
+         PVACTUEL = PVACTUEL - totalDegats;
+    }
+    else if(orcs[4].PV <= 0){
+        let totalDegats =  getRandomInt(orcs[5].degats + 1) + getRandomInt(orcs[6].degats + 1) + getRandomInt(orcs[7].degats + 1);
+
+        orcs[5].PV = orcs[5].PV - degatPerso;     
+        alert(`Vous infligez ${degatPerso} de degat à Retu,\n Les 3 autres vous infligent ${totalDegats}`); 
+        PVACTUEL = PVACTUEL - totalDegats;
+    }
+    else{   
+        let totalDegats = getRandomInt(orcs[4].degats + 1) + getRandomInt(orcs[5].degats + 1) + getRandomInt(orcs[6].degats + 1) + getRandomInt(orcs[7].degats + 1);
+        orcs[4].PV = orcs[4].PV - degatPerso;
+        alert(`Vous infligez ${degatPerso} de degat à ZO,\n Ils vous attaquent tous et vous infligent ${totalDegats}`);
+        PVACTUEL = PVACTUEL - totalDegats;
+    }
+
+    PVACTUEL = 20;
     localStorage.setItem("PVACTUEL", PVACTUEL);
+    reapparitionDes4();
     affichagePerso();
+    function reapparitionDes4(){
+        if(orcs[7].PV <= 0){
+            WAI.innerHTML = "WAI est en PLS";
+            localStorage.setItem("xpActuel", parseInt(xpActuel) + 20);
+            console.log("combat terminé");
+        }
+        if(orcs[6].PV <= 0){
+            FOUZ.innerHTML = "Fouz est en PLS";
+            localStorage.setItem("xpActuel", parseInt(xpActuel) + 20);
+        }
+        if(orcs[5].PV <= 0){
+            RETU.innerHTML = "Retu est en PLS";
+            localStorage.setItem("xpActuel", parseInt(xpActuel) + 20);
+        }
+        if(orcs[4].PV <= 0){
+            ZO.innerHTML = "Zo est en PLS";
+            localStorage.setItem("xpActuel", parseInt(xpActuel) + 20);
+        }
+
+    }
 }

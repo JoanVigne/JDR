@@ -21,6 +21,8 @@ let social = stats[0]["social"];
 let PVACTUEL = localStorage.getItem("PVACTUEL");
 let playerContainer = document.getElementById("player");
 let fourrure = localStorage.getItem("Fourrure");
+
+let xpActuel = localStorage.getItem("xpActuel");
 // L'armee orc
 let retrievedOrcs = localStorage.getItem("orcs");
 let orcs = JSON.parse(retrievedOrcs);
@@ -67,10 +69,10 @@ function createBarreXP(value = 0) {
     progressBar.setAttribute("value", xpActuel);
     main.appendChild(progressBar);
 }
-let xpActuel = localStorage.getItem("xpActuel");
+
 createBarreXP(xpActuel);
 if (xpActuel >= 100) {
-    localStorage.setItem("PVACTUEL", 20);
+    localStorage.setItem("PVACTUEL", pv);
     alert("Votre experience aux nombreux combats que vous avez menez vous fait récuperer un grand nombre de PV !")
     localStorage.setItem("xpActuel", 0);
     window.location.reload();
