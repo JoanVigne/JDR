@@ -1,8 +1,7 @@
 
 
 // LES STATS DES ORCS  DEJA MIS DANS LE PLAYER.JS
-// let retrievedOrcs = localStorage.getItem("orcs");
-// let orcsCamp = JSON.parse(retrievedOrcs);
+
 
 // ARRIVEE AU CAMP O1
 let containerPara = document.getElementById("containerPara");
@@ -311,13 +310,5 @@ function setInLocalStorage3(event) {
         window.location.reload();
 }
 
-// dice
-function getRandomInt(max) {
-        return Math.floor(Math.random() * max);
-}
-function apparaitreDé() {
-        let dice = document.getElementById("dice");
-        dice.innerHTML = "<img src='../images/dé-96.png'>";
-}
 
 

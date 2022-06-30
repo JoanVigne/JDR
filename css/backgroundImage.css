@@ -31,3 +31,10 @@
 .containerPrison {
     background-image: url("../images/nord/prisonOrc.jpg");
 }
+.containerNordNordOuest {
+    background-image: url("../images/nord/nordNordOuest.jpg");
+}
+
+.containerChamp{
+    background-image: url("../images/nord/champ.jpg");
+}

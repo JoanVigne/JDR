@@ -158,6 +158,7 @@ function apresSecondChoix() {
         }
         else {
             localStorage.setItem("dernierchoix", "Reposez-vous");
+            window.location.reload();
         }
 
     }
@@ -192,6 +193,7 @@ function apresSecondChoix() {
             if (result >= 11) {
                 localStorage.setItem("dernierchoix", "fight");
             }
+            window.location.reload();
         }
     }
     if (premierChoixStorage === "Oui, je suis blessé par leurs fautes, je souhaite me reposer ici") {
@@ -213,21 +215,27 @@ function apresSecondChoix() {
                 if (result >= 11) {
                     localStorage.setItem("dernierchoix", "fight");
                 }
+                window.location.reload();
+
             }
         }
         else {
             localStorage.setItem("dernierchoix", "Reposez-vous");
+            window.location.reload();
         }
     }
     if (premierChoixStorage === "Non, aucun soucis") {
         localStorage.setItem("dernierchoix", "Reposez-vous");
+        window.location.reload();
     }
     if (premierChoixStorage === "Je me suis perdu") {
         if (race === "humain") {
             localStorage.setItem("dernierchoix", "fight");
+            window.location.reload();
         }
         else {
             localStorage.setItem("dernierchoix", "Reposez-vous");
+            window.location.reload();
         }
     }
     if (premierChoixStorage === "Demander de l'aide pour votre quête") {
@@ -264,14 +272,13 @@ function apresSecondChoix() {
 function consequences() {
 
     PVACTUELCHEF = localStorage.getItem("PVACTUELCHEF");
-    console.log("CONSEQUENCE");
     if (dernierChoixStorage === "Reposez-vous") {
         containerPara.innerHTML += `<p>Reposez vous, mangez à votre faim et dormez ici quelques jours, le temps de vous remettre d'aplomb</p>`
         containerPara.addEventListener("click", reposAndRelocation);
         function reposAndRelocation() {
             localStorage.setItem("PVACTUEL", stats[0]["pv"])
             alert("Certains gardes vous escortent loin du camp, pour éviter des attaquent éventuelles de loups, ils s'éloigne ensuite et vous saluent respectueusement");
-            window.location.href = "NordNord.html";
+            window.location.href = "NordNordOuest.html";
         }
     }
     if (dernierChoixStorage === "fight") {
@@ -380,19 +387,7 @@ function setInLocalStorage2(event) {
     localStorage.setItem("premierChoix", event.target.value);
     window.location.reload();
 }
-// function setInLocalStorageLead(event) {
-//     localStorage.setItem("lead", event.target.value);
-//     window.location.reload();
-// }
 
-// LES DES
-function getRandomInt(max) {
-    return Math.floor(Math.random() * max);
-}
-function apparaitreDé() {
-    let dice = document.getElementById("dice");
-    dice.innerHTML = "<img src='../images/dé-96.png'>";
-}
 // roll the dice
 
 function rollTheDiceVSCHEF() {
@@ -438,7 +433,7 @@ function soloEventRace() {
             if (result <= 10) {
                 alert("Apres avoir vaincu leur chef et été aussi éloquent, ils vous laissent partir en vie... ");
                 alert("Vous vous retrouvez a marché loin au sud est du camp, suivi de loin par certains orcs, qui s'assurent que vous ne reveniez pas sur vos pas")
-                window.location.href = "NordNord.html";
+                window.location.href = "NordNordOuest.html";
             }
             if (result >= 11) {
                 alert("Les orcs sont offensé par votre discours peu convaincant, et sortent leurs armes...")
@@ -450,12 +445,13 @@ function soloEventRace() {
     else {
         localStorage.setItem("PVACTUEL", pv);
         alert("Vous vous retrouvez a marché plusieurs jours, loin au sud est du camp, suivi de loin par certains orcs, pour s'assurer que vous ne reviendrez pas sur vos pas");
-        window.location.href = "NordNord.html";
+        window.location.href = "NordNordOuest.html";
     }
 
 };
 // SEUL CONTRE 4
 function apparitionDes4() {
+    levelUp()
     let ZO = document.createElement("div");
     ZO.innerHTML = `${orcs[4].image}<br><h4 id="zoText">${orcs[4].nom}<br>PV:${orcs[4].PV}<br>Degats:${orcs[4].degats}</h4>`;
     let RETU = document.createElement("div");
@@ -472,6 +468,7 @@ function apparitionDes4() {
 }
 
 function rollTheDiceVS4Orcs(){
+    
     let ZO = document.getElementById("zoText");
     let RETU = document.getElementById("retuText");
     let FOUZ = document.getElementById("fouzText");
@@ -513,16 +510,22 @@ function rollTheDiceVS4Orcs(){
         alert(`Vous infligez ${degatPerso} de degat à ZO,\n Ils vous attaquent tous et vous infligent ${totalDegats}`);
         PVACTUEL = PVACTUEL - totalDegats;
     }
-
-    PVACTUEL = 20;
     localStorage.setItem("PVACTUEL", PVACTUEL);
     reapparitionDes4();
     affichagePerso();
     function reapparitionDes4(){
+        levelUp();
         if(orcs[7].PV <= 0){
             WAI.innerHTML = "WAI est en PLS";
             localStorage.setItem("xpActuel", parseInt(xpActuel) + 20);
-            console.log("combat terminé");
+            redirection()
+            function redirection(){
+                setTimeout(alertEtRedirection, 3500);
+                function alertEtRedirection(){
+                    alert("Après avoir vaincu ces 4 gusses, vous prenez la fuite vers le sud est du camp.");
+                    window.location.href = "NordNordOuest.html";
+                }
+            }
         }
         if(orcs[6].PV <= 0){
             FOUZ.innerHTML = "Fouz est en PLS";

@@ -1,23 +1,16 @@
 
 // fonctions pour combat contre loup, ne pas oublier de mettre de quel loup on parle dans le html
 
-// dice
-function getRandomInt(max) {
-    return Math.floor(Math.random() * max);
-}
-// fleche direction apres combat
-function disparaitreFleche() {
-    nord.classList.remove("hidden");
-    sud.classList.remove("hidden");
-    est.classList.remove("hidden");
-    ouest.classList.remove("hidden");
-};
+
+
+
+
 // creation loup  ou disparition
 function alertLoup() {
     let fourrure = localStorage.getItem("Fourrure");
     if (pvLoup <= 0) {
         loupContainer.innerHTML = '<p>Vous avez vaincu<br>ce canidé sauvage.</p><br>';
-        disparaitreFleche();
+        apparaitreFleche();
         if (fourrure === "non") {
             loupContainer.insertAdjacentHTML('beforeend', '<div id="questionNNNN"><input type="button" value="Se vétire de sa fourrure" id="peauDeBete" class="choix"></div>');
             let peauDeBete = document.getElementById("peauDeBete");
@@ -28,7 +21,7 @@ function alertLoup() {
             peauDeBete.addEventListener("click", setPeauDeBete);
         }
     }
-    if (pvLoup >= 1) {
+    if (pvLoup > 0) {
         alert("Un loup surgit devant vous !!");
         loupContainer.innerHTML = "<img src='../images/perso/loup.png' alt=''> <br><h4> PV = " + pvLoup + "<br> Dégats  =" + degatsLoup + "</h4>";
         let dice = document.getElementById("dice");

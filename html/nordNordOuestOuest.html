@@ -17,22 +17,22 @@
 <body class="zoneNord">
     <h3> Un froid glacial !</h3>
     <main>
-        <div class="container world containerNordNordNord" id="containerWorld">
+        <div class="container world containerNordNordOuest" id="containerWorld">
             <div id="nord" class="tooltip nordContainer hidden"><img src="../images/fleche-nord.png" alt=""
                     class="arrow">
                 <p class="tooltiptext">Plus de neige</p>
             </div>
             <!-- middle -->
             <div class="middleContainer">
-                <div id="ouest" class="tooltip hidden"> <img src="../images/fleche-ouest.png" alt="" class="arrow">
-                    <p class="tooltiptext">des arbes enneigés.</p>
+                <div id="ouest" class="tooltip "> <img src="../images/fleche-ouest.png" alt="" class="arrow ">
+                    <p class="tooltiptext">La meme</p>
                 </div>
                 <!--LOUP-->
                 <div id="loupContainer"></div>
                 <!-- PLAYER -->
                 <div id="player"></div>
                 <div id="est" class="tooltip hidden"> <img src="../images/fleche-est.png" alt="" class="arrow ">
-                    <p class="tooltiptext "></p>
+                    <p class="tooltiptext">Chemins de terre</p>
                 </div>
             </div>
             <!-- end of middle -->
@@ -46,9 +46,6 @@
     <script src="../js/player.js"></script>
    
     <script>
-        let loupContainer = document.getElementById("loupContainer");
-        let retrievedLoups = localStorage.getItem("loups");
-        let loups = JSON.parse(retrievedLoups);
         let loup = loups[3];
         let pvLoup = loup["PV"];
         let degatsLoup = loup["degats"];
@@ -63,7 +60,7 @@
             
         })
         ouest.addEventListener('click', function () {
-
+            window.location.href = "nordNordOuestOuestOuest.html";
         })
     </script>
      <script src="../js/loup.js"></script>

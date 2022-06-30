@@ -1,4 +1,7 @@
 /* ARROWS DIRECTIONS */
+
+
+
 .hidden {
     visibility: hidden;
 }
@@ -51,6 +54,13 @@
 .tooltip:hover .tooltiptext {
     visibility: visible;
 }
+
+
+
+.heal {
+    background-color: none;
+}
+
 /* Smartphones       NE FONCTIONNE PAS???? */
 @media only screen and (max-width : 600px) {
     .tooltiptext {

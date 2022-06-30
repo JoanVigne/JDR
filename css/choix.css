@@ -30,5 +30,14 @@ input:hover {
     width: 64px;
     height: 64px;
 }
+.heal {
+   opacity: 0.3;
+}
+.heal:hover {
+    border: 1px solid black;
+    color: black;
+    background-color: red;
+    cursor: pointer;
+}
 
 

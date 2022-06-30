@@ -18,8 +18,8 @@
     <h3> Un froid glacial !</h3>
     <main>
         <div class="container world containerNordNordNord" id="containerWorld">
-            <div id="nord" class="tooltip nordContainer hidden"><img src="../images/fleche-nord.png" alt=""
-                    class="arrow hidden">
+            <div id="nord" class="tooltip nordContainer "><img src="../images/fleche-nord.png" alt=""
+                    class="arrow">
                 <p class="tooltiptext displayNone"></p>
             </div>
             <!-- middle -->
@@ -46,15 +46,13 @@
     <script src="../js/player.js"></script>
    
     <script>
-        let loupContainer = document.getElementById("loupContainer");
-        let retrievedLoups = localStorage.getItem("loups");
-        let loups = JSON.parse(retrievedLoups);
+       
         let loup = loups[1];
         let pvLoup = loup["PV"];
         let degatsLoup = loup["degats"];
 
         nord.addEventListener('click', function () {
-            window.location.href = "nordNordNordNordNord.html";
+            window.location.href = "nordNordNordNordNordNord.html";
             if(fourrure ==="non"){
                 alert("le froid est si violent que vous perdez 1 PV")
                 localStorage.setItem("PV", PV - 1);
