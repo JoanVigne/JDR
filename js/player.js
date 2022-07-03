@@ -40,11 +40,13 @@ let xpActuel = localStorage.getItem("xpActuel");
 // L'armee orc
 let retrievedOrcs = localStorage.getItem("orcs");
 let orcs = JSON.parse(retrievedOrcs);
-// STATS DES LOUPS 
 // LES STATS DES LOUPS
 let loupContainer = document.getElementById("loupContainer");
 let retrievedLoups = localStorage.getItem("loups");
 let loups = JSON.parse(retrievedLoups);
+// STATS DES SOLDATS
+let retrievedSoldats = localStorage.getItem("soldats");
+let soldats = JSON.parse(retrievedSoldats);
 // // // //
 function affichagePerso() {
     if (fourrure === "oui") {

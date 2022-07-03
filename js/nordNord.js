@@ -16,9 +16,6 @@ let paraChoix = document.getElementById("paraChoix");
 // verifie si le choix a deja été fait
 done()
 function done() {
-    choixNordNord1.remove();
-    choixNordNord2.remove();
-    apparaitreFleche();
     if (nordNordDone === "Se cacher") {
         paraChoix.innerHTML = "Ils s'etaient dirigés vers le sud.."
 

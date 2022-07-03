@@ -13,6 +13,7 @@ function depart(){
     }
     else if(nordNordEstChoix === "paysans fuite"){
         containerPara.innerHTML = `<p>Ils ont fuient vers l'est tout à l'heure...</p>`
+        apparaitreFleche();
     }
     else {
         consequencesChoixNordNord();
@@ -31,6 +32,7 @@ function consequencesChoixNordNord() {
         }
         else{
             containerPara.innerHTML += "<p>Un beau chemin bien entretenu, comme on les aime.</p>";
+            apparaitreFleche();
         }
 
     }
@@ -51,6 +53,7 @@ function rollTheDiceRattraper() {
         containerPara.innerHTML = `<p>Vous les voyez partir encore plus vers l'est, ils sont trop rapides pour vous...</p>`
         localStorage.setItem("nordNordEst", "paysans fuite");
         dice.innerHTML = "";
+        apparaitreFleche();
     }
 };
 

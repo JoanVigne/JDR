@@ -30,21 +30,24 @@
             </div>  
             </div>
             <!-- end of middle -->
-            <!-- HEAL -->
-<button id="healButton" class="heal">?</button>
+            <div class="tooltip sudContainer"><img src="../images/fleche-sud.png" alt="" id="sud" class="arrow">
+                <p class="tooltiptext">Vous pouvez revenir sur vos pas...</p>
+            </div>
         </div>
     </main>
     <script src="../js/player.js"></script>
-    <script src="../js/heal.js"></script>
     <script>
         nord.addEventListener('click', function () {
-            window.location.href = "nordNordEst.html";
+            window.location.href = "nordNordNordEstEstEst.html";
         })
         est.addEventListener('click', function () {
-            window.location.href = "nordEstEst.html";
+            window.location.href = "nordNordEstEstEstEst.html";
         })
         ouest.addEventListener('click', function () {
-            window.location.href = "nord.html";
+            window.location.href = "nordNordEstEst.html";
+        })
+        sud.addEventListener('click', function () {
+            window.location.href = "nordEstEstEst.html";
         })
     </script>
 </body>

@@ -1,0 +1,44 @@
+
+
+p {
+    text-align: center;
+    width: 70%;
+    background-color: black;
+    color: white;
+    margin: auto;
+    padding: 3px;
+}
+input {
+    background-color: white;
+    padding: 3px;
+    margin: 3px;
+    text-align: center;
+}
+input:hover {
+    background-color: black;
+    color: white;
+    cursor: pointer;
+}
+#containerPara {
+    display: flex;
+    max-width: 300px;
+}
+#containerPara #chefOrc{
+    width: 140px;
+    height: 140px;
+}
+#containerPara img{
+    width: 64px;
+    height: 64px;
+}
+.heal {
+   opacity: 0.3;
+}
+.heal:hover {
+    border: 1px solid black;
+    color: black;
+    background-color: red;
+    cursor: pointer;
+}
+
+

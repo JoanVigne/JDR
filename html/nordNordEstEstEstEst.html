@@ -25,26 +25,26 @@
                 <p class="tooltiptext ">Une pente abrupte</p>
             </div>
            <!-- PLAYER --> <div id="player"></div> 
-            <div class="tooltip"> <img src="../images/fleche-est.png" alt="" id="est" class="arrow">
+            <div class="tooltip hidden"> <img src="../images/fleche-est.png" alt="" id="est" class="arrow">
                 <p class="tooltiptext">Des champs !</p>
             </div>  
             </div>
             <!-- end of middle -->
-            <!-- HEAL -->
-<button id="healButton" class="heal">?</button>
+            <div class="tooltip sudContainer"><img src="../images/fleche-sud.png" alt="" id="sud" class="arrow">
+                <p class="tooltiptext">Vous pouvez revenir sur vos pas...</p>
+            </div>
         </div>
     </main>
     <script src="../js/player.js"></script>
-    <script src="../js/heal.js"></script>
     <script>
         nord.addEventListener('click', function () {
-            window.location.href = "nordNordEst.html";
-        })
-        est.addEventListener('click', function () {
-            window.location.href = "nordEstEst.html";
+            window.location.href = "nordNordNordEstEstEstEst.html";
         })
         ouest.addEventListener('click', function () {
-            window.location.href = "nord.html";
+            window.location.href = "nordNordEstEstEst.html";
+        })
+        sud.addEventListener('click', function () {
+            window.location.href = "nordNordEstEstEstEst.html";
         })
     </script>
 </body>

@@ -31,6 +31,61 @@ function setFourrure() {
 }
 
 function setEnemies() {
+  let soldats = [{
+    "nom": "Mathieu",
+    "PV": 7,
+    "degats": 3,
+    "image": "<img src='../images/perso/orcCamp.png' alt''>"
+  },
+  {
+    "nom": "Charlie",
+    "PV": 5,
+    "degats": 3,
+    "image": "<img src='../images/perso/orcCamp.png' alt''>"
+  },
+  {
+    "nom": "Jess",
+    "PV": 7,
+    "degats": 3,
+    "image": "<img src='../images/perso/orcCamp.png' alt''>"
+  },
+  {
+    "nom": "Bastien",
+    "PV": 17,
+    "degats": 6,
+    "image": "<img src='../images/perso/chefOrc.png' alt'' id='chefOrc'>"
+  },
+  {
+    "nom": "Nicolas",
+    "PV": 5,
+    "degats": 2,
+    "image": "<img src='../images/perso/chevalierCute.png' alt'' class='soldatOrc'>"
+  },
+  {
+    "nom": "Sebastien",
+    "PV": 4,
+    "degats": 2,
+    "image": "<img src='../images/perso/chevalierCute.png' alt'' class='soldatOrc'>"
+  },
+  {
+    "nom": "Daniel",
+    "PV": 10,
+    "degats": 5,
+    "image": "<img src='../images/perso/cavalier.png' alt'' class='soldatOrc'>"
+  },
+  {
+    "nom": "Claude",
+    "PV": 8,
+    "degats": 4,
+    "image": "<img src='../images/perso/cavalier.png' alt'' class='soldatOrc'> "
+  },
+  {
+    "nom": "Venceslas",
+    "PV": 12,
+    "degats": 7,
+    "image": "<img src='../images/perso/cavalier.png' alt'' class='soldatOrc'> "
+  }
+]
   let loups = [{
     "nom": "NNNN",
     "PV": 5,
@@ -106,6 +161,8 @@ function setEnemies() {
     "image": "<img src='../images/perso/orcCamp5.png' alt'' class='soldatOrc'> "
   }
 ]
+localStorage.setItem("soldats", JSON.stringify(soldats));
   localStorage.setItem("orcs", JSON.stringify(orcs)); 
   localStorage.setItem("loups", JSON.stringify(loups));
+ 
 }
