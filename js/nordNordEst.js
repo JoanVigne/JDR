@@ -26,7 +26,7 @@ function consequencesChoixNordNord() {
     }
     if (choixnordnord === "Dire bonjour") {
         if (race === "orc") {
-            containerPara.innerHTML += "<p>Faites un lancé de dès pour savoir si vous les rattrapez</p>";
+            containerPara.innerHTML += "<p>Vous voyez les deux paysans courir. <br>Faites un lancé de dès pour savoir si vous les rattrapez</p>";
             apparaitreDé();
             dice.addEventListener("click", rollTheDiceRattraper);
         }
@@ -76,6 +76,7 @@ function attaquerFunction(){
             containerPara.innerHTML = `<p>D'une puissance orculéenne, vous décapitez les deux paysans d'un seul coup</p>`;
             localStorage.setItem("nordNordEst", "paysans morts");
             localStorage.setItem("xpActuel", parseInt(xpActuel) + 10);
+            apparaitreFleche();
         }
     }
 

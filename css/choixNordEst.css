@@ -40,5 +40,7 @@ input:hover {
     background-color: red;
     cursor: pointer;
 }
-
+.deuxSoldats {
+    display: flex;
+}
 

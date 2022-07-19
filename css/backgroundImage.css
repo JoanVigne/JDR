@@ -38,3 +38,7 @@
 .containerChamp{
     background-image: url("../images/nord/champ.jpg");
 }
+
+.containerPineTree {
+    background-image: url("../images/nord/pineTreeSnow.webp");
+}

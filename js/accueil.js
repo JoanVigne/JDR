@@ -35,55 +35,64 @@ function setEnemies() {
     "nom": "Mathieu",
     "PV": 7,
     "degats": 3,
-    "image": "<img src='../images/perso/orcCamp.png' alt''>"
+    "image": "<img src='../images/perso/orcCamp.png' alt''>",
+    id: 0
   },
   {
     "nom": "Charlie",
     "PV": 5,
     "degats": 3,
-    "image": "<img src='../images/perso/orcCamp.png' alt''>"
+    "image": "<img src='../images/perso/orcCamp.png' alt''>",
+    id: 1
   },
   {
     "nom": "Jess",
     "PV": 7,
     "degats": 3,
-    "image": "<img src='../images/perso/orcCamp.png' alt''>"
+    "image": "<img src='../images/perso/orcCamp.png' alt''>",
+    id: 2
   },
   {
     "nom": "Bastien",
     "PV": 17,
     "degats": 6,
-    "image": "<img src='../images/perso/chefOrc.png' alt'' id='chefOrc'>"
+    "image": "<img src='../images/perso/chefOrc.png' alt'' id='chefOrc'>",
+    id: 3
   },
   {
     "nom": "Nicolas",
     "PV": 5,
     "degats": 2,
-    "image": "<img src='../images/perso/chevalierCute.png' alt'' class='soldatOrc'>"
+    "image": "<img src='../images/perso/chevalierCute.png' alt'' class='soldatOrc'>",
+    id: 4
   },
   {
     "nom": "Sebastien",
     "PV": 4,
     "degats": 2,
-    "image": "<img src='../images/perso/chevalierCute.png' alt'' class='soldatOrc'>"
+    "image": "<img src='../images/perso/chevalierCute.png' alt'' class='soldatOrc'>",
+    id: 5
   },
   {
     "nom": "Daniel",
     "PV": 10,
     "degats": 5,
-    "image": "<img src='../images/perso/cavalier.png' alt'' class='soldatOrc'>"
+    "image": "<img src='../images/perso/cavalier.png' alt'' class='soldatOrc'>",
+    id: 6
   },
   {
     "nom": "Claude",
     "PV": 8,
     "degats": 4,
-    "image": "<img src='../images/perso/cavalier.png' alt'' class='soldatOrc'> "
+    "image": "<img src='../images/perso/cavalier.png' alt'' class='soldatOrc'> ",
+    id: 7
   },
   {
     "nom": "Venceslas",
     "PV": 12,
     "degats": 7,
-    "image": "<img src='../images/perso/cavalier.png' alt'' class='soldatOrc'> "
+    "image": "<img src='../images/perso/cavalier.png' alt'' class='soldatOrc'> ",
+    id: 8
   }
 ]
   let loups = [{

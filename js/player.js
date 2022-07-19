@@ -98,27 +98,21 @@ function createBarreXP(value = 0) {
     progressBar.setAttribute("value", xpActuel);
     main.appendChild(progressBar);
 }
-
 createBarreXP(xpActuel);
-// if (xpActuel >= 100) {
-//     localStorage.setItem("PVACTUEL", pv);
-//     alert("Votre experience aux nombreux combats que vous avez menez vous fait récuperer un grand nombre de PV !")
-//     localStorage.setItem("xpActuel", 0);
-//     window.location.reload();
-// }
+
 function levelUp() {
-    if (xpActuel.value >= 100) {
+    if (xpActuel >= 100) {
         alert("Votre experience aux nombreux combats que vous avez menez vous fait récuperer un grand nombre de PV !");
         localStorage.setItem("PVACTUEL", pv);
         localStorage.setItem("xpActuel", 0);
+        window.location.reload();
     }
     else {
         let progressBar = document.getElementById("progressBar");
         progressBar.value = xpActuel;
     }
 }
-
-
+levelUp()   
 
 // // LA MORT 
 
@@ -137,6 +131,8 @@ function getRandomInt(max) {
 }
 function apparaitreDé() {
     let dice = document.getElementById("dice");
-    dice.innerHTML = "<img src='../images/dé-96.png'>";
+    dice.innerHTML = `<img src='../images/dé-96.png'>`;
+
 }
+
 
